@@ -10,10 +10,16 @@ from playwright.async_api import async_playwright
 
 from .wechat_service import (WECHAT_URL, ACCOUNTS_DIR,
                               get_today_templates_dir, load_templates,
-                              save_history, launch_browser)
+                              save_history, launch_browser,
+                              TEMPLATE_CATEGORIES)
 
 # 条件等待的默认超时（毫秒）
 _TIMEOUT = 15000
+_DAILY_TEMPLATE_NAMES = {
+    "校招": "校招日常模板2",
+    "实习": "实习日常模板1",
+    "社招": "社招日常模板1",
+}
 
 
 class _StopRequested(Exception):
@@ -345,6 +351,20 @@ async def _do_replace(editor_page, replacements: dict, log) -> dict:
             if (!root) return {};
             let html = root.innerHTML;
             const replaced = {};
+            function escapeHtml(text) {
+                return String(text)
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&#39;');
+            }
+            function toEditorHtml(text) {
+                const normalized = escapeHtml(text)
+                    .replace(/\\\\n/g, '\\n')
+                    .split(/\\r\\n|\\r|\\n/g);
+                return normalized.join('</span></p><p><span leaf="">');
+            }
             for (const [ph, newText] of Object.entries(replacements)) {
                 const escaped = ph.split('').map(c =>
                     c.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')
@@ -353,7 +373,7 @@ async def _do_replace(editor_page, replacements: dict, log) -> dict:
                 const matches = html.match(regex);
                 const count = matches ? matches.length : 0;
                 if (count > 0) {
-                    const htmlText = newText.replace(/\\n/g, '</p><p>');
+                    const htmlText = toEditorHtml(newText);
                     html = html.replace(regex, htmlText);
                 }
                 replaced[ph] = count;
@@ -487,16 +507,23 @@ class WechatPublishThread(QThread):
             templates_dir = self._templates_dir
         else:
             templates_dir = get_today_templates_dir(self.account_name)
-        recruit_temps = load_templates(templates_dir, "校招")
-        intern_temps = load_templates(templates_dir, "实习")
+        category_templates = [
+            (category, load_templates(templates_dir, category))
+            for category in TEMPLATE_CATEGORIES
+        ]
+        recruit_temps = dict(category_templates).get("校招", [])
+        intern_temps = dict(category_templates).get("实习", [])
         if not recruit_temps and not intern_temps:
             self.publishFailed.emit(
                 f"未找到模板，请在 {templates_dir} 下的 校招/ 和 实习/ "
                 f"文件夹中放入模板")
             return
 
-        self._log(f"已加载 校招 {len(recruit_temps)} 个, "
-                  f"实习 {len(intern_temps)} 个")
+        loaded_summary = ", ".join(
+            f"{category} {len(temps)} 个"
+            for category, temps in category_templates
+        )
+        self._log(f"已加载 {loaded_summary}")
 
         if not self.session_path.exists():
             self.publishFailed.emit("未找到登录会话，请先登录账号")
@@ -552,12 +579,11 @@ class WechatPublishThread(QThread):
 
             success_count = 0
             fail_count = 0
-            total_count = len(recruit_temps) + len(intern_temps)
+            total_count = sum(len(temps) for _, temps in category_templates)
 
             try:
                 article_idx = 0
-                for category, temps in [("校招", recruit_temps),
-                                        ("实习", intern_temps)]:
+                for category, temps in category_templates:
                     for i, (name, data) in enumerate(temps):
                         await self._check_state()
 
@@ -569,11 +595,7 @@ class WechatPublishThread(QThread):
 
                         try:
                             if article_idx > 0:
-                                # 确定搜索的草稿模板名
-                                if category == "校招":
-                                    tpl_name = "校招日常模板2"
-                                else:
-                                    tpl_name = "实习日常模板1"
+                                tpl_name = _DAILY_TEMPLATE_NAMES[category]
 
                                 self._log(
                                     f"新建第 {article_idx + 1} 篇"

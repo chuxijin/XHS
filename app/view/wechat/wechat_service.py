@@ -14,17 +14,20 @@ from ...common.setting import DATA_DIR, launch_browser
 
 WECHAT_URL = "https://mp.weixin.qq.com/"
 ACCOUNTS_DIR = DATA_DIR / "accounts" / "wechat"
+WECHAT_ACCOUNT_PRESETS = ["物流", "财会", "法学"]
+TEMPLATE_CATEGORIES = ["校招", "实习", "社招"]
 
 
 # ---- 账号管理 ----
 
 def get_accounts() -> list[str]:
-    """返回所有已登录的账号名称列表"""
+    """返回预置账号和所有已登录账号名称列表"""
     ACCOUNTS_DIR.mkdir(parents=True, exist_ok=True)
-    return sorted(
+    logged_accounts = sorted(
         d.name for d in ACCOUNTS_DIR.iterdir()
         if d.is_dir() and (d / "session.json").exists()
     )
+    return list(dict.fromkeys([*WECHAT_ACCOUNT_PRESETS, *logged_accounts]))
 
 
 def account_exists(name: str) -> bool:
@@ -86,7 +89,7 @@ def load_date_range_templates(
 
     Parameters
     ----------
-    category : "校招" 或 "实习"
+    category : "校招"、"实习" 或 "社招"
 
     Returns
     -------

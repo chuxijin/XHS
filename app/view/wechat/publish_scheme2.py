@@ -1,5 +1,5 @@
 # coding: utf-8
-"""发布方案2 —— 周日汇总（校招 + 实习）"""
+"""发布方案2 —— 周日汇总（校招 + 实习 + 社招）"""
 import asyncio
 import time
 from datetime import datetime
@@ -14,11 +14,17 @@ from .publish_scheme1 import (
 from .wechat_service import (
     WECHAT_URL, ACCOUNTS_DIR,
     load_date_range_templates, compute_month_and_week,
-    save_history, launch_browser,
+    save_history, launch_browser, TEMPLATE_CATEGORIES,
 )
 
 
 # ---- 辅助函数 ----
+
+_SUMMARY_TEMPLATE_PREFIXES = {
+    "校招": "周日总结校招模板",
+    "实习": "周日总结实习模板",
+    "社招": "周日总结社招模板",
+}
 
 
 async def _navigate_to_first_editor_scheme2(page, template_prefix: str, log):
@@ -269,13 +275,27 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
                 ).join('(?:<[^>]*>)*')
             );
         }
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        function toEditorHtml(text) {
+            const normalized = escapeHtml(text)
+                .replace(/\\\\n/g, '\\n')
+                .split(/\\r\\n|\\r|\\n/g);
+            return normalized.join('</span></p><p><span leaf="">');
+        }
 
         for (const [ph, values] of Object.entries(fieldValues)) {
             let count = 0;
             for (const val of values) {
                 const regex = buildRegex(ph);
                 if (regex.test(html)) {
-                    html = html.replace(regex, val);
+                    html = html.replace(regex, toEditorHtml(val));
                     count++;
                 }
             }
@@ -406,24 +426,24 @@ class Scheme2Thread(QThread):
         self._log(f"周日汇总: {self._start_date} ~ {self._end_date}, "
                   f"{month}月第{week}周")
 
-        # 加载数据
-        recruit_raw = load_date_range_templates(
-            self.account_name, self._start_date, self._end_date, "校招")
-        intern_raw = load_date_range_templates(
-            self.account_name, self._start_date, self._end_date, "实习")
+        # 加载并展平为 (date, data_dict) 列表
+        category_entries = []
+        for category in TEMPLATE_CATEGORIES:
+            raw_templates = load_date_range_templates(
+                self.account_name, self._start_date, self._end_date,
+                category)
+            flat_entries = [(d, data)
+                            for d, day_temps in raw_templates
+                            for _, data in day_temps]
+            category_entries.append((category, flat_entries))
 
-        # 展平为 (date, data_dict) 列表
-        recruit_flat = [(d, data)
-                        for d, day_temps in recruit_raw
-                        for _, data in day_temps]
-        intern_flat = [(d, data)
-                       for d, day_temps in intern_raw
-                       for _, data in day_temps]
+        summary = ", ".join(
+            f"{category}: {len(entries)} 条"
+            for category, entries in category_entries
+        )
+        self._log(summary)
 
-        self._log(f"校招: {len(recruit_flat)} 条, "
-                  f"实习: {len(intern_flat)} 条")
-
-        if not recruit_flat and not intern_flat:
+        if not any(entries for _, entries in category_entries):
             self.publishFailed.emit("日期范围内未找到任何模板数据")
             return
 
@@ -465,45 +485,32 @@ class Scheme2Thread(QThread):
                 return
 
             try:
-                # ===== 第 1 篇：校招 =====
-                RECRUIT_PREFIX = "周日总结校招模板"
-                if recruit_flat:
-                    await self._check_state()
-                    self._log(f"===== 第1篇: 校招 "
-                              f"({len(recruit_flat)}条) =====")
-                    editor_page = await _retry(
-                        lambda: _navigate_to_first_editor_scheme2(
-                            page, RECRUIT_PREFIX, self._log),
-                        retries=1, delay=3, log=self._log)
+                article_idx = 0
+                for category, entries in category_entries:
+                    if not entries:
+                        self._log(f"{category}无数据，跳过")
+                        continue
 
                     await self._check_state()
-                    result = await _do_sequential_replace(
-                        editor_page, month, week,
-                        recruit_flat, RECRUIT_PREFIX, self._log)
-                    self._log(f"校招替换完成: {result}")
-                    save_history(self.account_dir, "校招汇总",
-                                {"entries": len(recruit_flat)}, "success")
-                else:
-                    self._log("校招无数据，跳过")
-                    # 仍需打开编辑器以便创建第 2 篇
-                    editor_page = await _navigate_to_first_editor_scheme2(
-                        page, RECRUIT_PREFIX, self._log)
+                    template_prefix = _SUMMARY_TEMPLATE_PREFIXES[category]
+                    self._log(f"===== 第{article_idx + 1}篇: {category} "
+                              f"({len(entries)}条) =====")
 
-                # ===== 第 2 篇：实习 =====
-                INTERN_PREFIX = "周日总结实习模板"
-                if intern_flat:
-                    await self._check_state()
-                    self._log(f"===== 第2篇: 实习 "
-                              f"({len(intern_flat)}条) =====")
-
-                    editor_page = await _find_editor_page(context)
-                    if not editor_page:
-                        raise Exception("未找到编辑器页面")
-
-                    await _retry(
-                        lambda: _create_new_article_scheme2(
-                            editor_page, INTERN_PREFIX, self._log),
-                        retries=1, delay=3, log=self._log)
+                    if article_idx == 0:
+                        editor_page = await _retry(
+                            lambda tp=template_prefix:
+                                _navigate_to_first_editor_scheme2(
+                                    page, tp, self._log),
+                            retries=1, delay=3, log=self._log)
+                    else:
+                        editor_page = await _find_editor_page(context)
+                        if not editor_page:
+                            raise Exception("未找到编辑器页面")
+                        await _retry(
+                            lambda ep=editor_page, tp=template_prefix:
+                                _create_new_article_scheme2(
+                                    ep, tp, self._log),
+                            retries=1, delay=3, log=self._log)
 
                     await self._check_state()
                     editor_page = await _find_editor_page(context)
@@ -512,12 +519,11 @@ class Scheme2Thread(QThread):
 
                     result = await _do_sequential_replace(
                         editor_page, month, week,
-                        intern_flat, INTERN_PREFIX, self._log)
-                    self._log(f"实习替换完成: {result}")
-                    save_history(self.account_dir, "实习汇总",
-                                {"entries": len(intern_flat)}, "success")
-                else:
-                    self._log("实习无数据，跳过")
+                        entries, template_prefix, self._log)
+                    self._log(f"{category}替换完成: {result}")
+                    save_history(self.account_dir, f"{category}汇总",
+                                {"entries": len(entries)}, "success")
+                    article_idx += 1
 
                 # 保存草稿
                 self._log("正在保存草稿...")

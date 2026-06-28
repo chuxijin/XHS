@@ -17,6 +17,7 @@ from qfluentwidgets import (ScrollArea, ExpandLayout, PrimaryPushButton,
                             StrongBodyLabel, CaptionLabel, MessageBoxBase,
                             TableView, CalendarPicker)
 from qfluentwidgets import FluentIcon as FIF
+from qfluentwidgetspro.components.widgets.combo_box import MultiSelectionComboBox
 
 from .wechat_service import (get_accounts, account_exists, load_templates,
                               load_history, save_history_list,
@@ -24,6 +25,7 @@ from .wechat_service import (get_accounts, account_exists, load_templates,
                               get_next_day_templates_dir,
                               get_account_dir, save_template,
                               repair_template_json,
+                              ACCOUNTS_DIR, TEMPLATE_CATEGORIES,
                               PROMPT_TEXT,
                               WechatLoginThread)
 from .publish_scheme1 import WechatPublishThread as Scheme1Thread
@@ -79,7 +81,7 @@ class AddTemplateDialog(MessageBoxBase):
 class _HistoryTableModel(QAbstractTableModel):
     """历史记录表格数据模型"""
 
-    HEADERS = ["时间", "模板", "公司", "岗位", "状态", "错误信息"]
+    HEADERS = ["时间", "模板", "公司", "岗位", "状态", "错误信息", "操作"]
 
     def __init__(self, history: list[dict], parent=None):
         super().__init__(parent)
@@ -116,6 +118,8 @@ class _HistoryTableModel(QAbstractTableModel):
                 return "成功" if h.get("status") == "success" else "失败"
             elif col == 5:
                 return h.get("error", "")
+            elif col == 6:
+                return None
         elif role == Qt.ForegroundRole:
             if col == 4:
                 if h.get("status") == "success":
@@ -163,6 +167,7 @@ class HistoryDialog(MessageBoxBase):
         header.setSectionResizeMode(3, QHeaderView.ResizeMode.Stretch)
         header.setSectionResizeMode(4, QHeaderView.ResizeMode.ResizeToContents)
         header.setSectionResizeMode(5, QHeaderView.ResizeMode.Stretch)
+        header.setSectionResizeMode(6, QHeaderView.ResizeMode.ResizeToContents)
 
         self.deleteButton = PushButton(self.tr("删除选中"), self)
         self.deleteButton.clicked.connect(self._deleteSelected)
@@ -170,8 +175,66 @@ class HistoryDialog(MessageBoxBase):
         self.viewLayout.addWidget(self.titleLabel)
         self.viewLayout.addWidget(self.tableView)
         self.viewLayout.addWidget(self.deleteButton)
-        self.widget.setMinimumWidth(800)
+        self.widget.setMinimumWidth(850)
         self.cancelButton.hide()
+
+        self._initTableWidgets()
+
+    def _initTableWidgets(self):
+        for row in range(self._model.rowCount()):
+            self._createCopyButton(row)
+
+    def _createCopyButton(self, row):
+        btn = PushButton(self.tr("复制标题"), self.tableView)
+        btn.setFixedHeight(26)
+        btn.clicked.connect(lambda _, r=row: self._copyTitle(r))
+        index = self._model.index(row, 6)
+        self.tableView.setIndexWidget(index, btn)
+
+    def _copyTitle(self, row):
+        if 0 <= row < len(self._model._data):
+            h = self._model._data[row]
+            r = h.get("replacements", {})
+            
+            # 提取公司简称，加入多种回退逻辑以确保能获取到
+            company = (r.get("{{公司简称}}", "") or 
+                       r.get("公司简称", "") or 
+                       r.get("{{公司名称}}", "") or 
+                       r.get("公司名称", "")).strip()
+            
+            # 提取岗位名称，加入多种回退逻辑
+            job = (r.get("{{岗位名称}}", "") or 
+                   r.get("岗位名称", "")).strip()
+
+            # 解析时间为 月.日 格式
+            date_str = ""
+            time_val = h.get("time", "")
+            if time_val:
+                parts = time_val.split(" ")[0].split("-")
+                if len(parts) == 3:
+                    try:
+                        m = int(parts[1])
+                        d = int(parts[2])
+                        date_str = f"{m}.{d}"
+                    except ValueError:
+                        pass
+            if not date_str:
+                from datetime import datetime
+                now = datetime.now()
+                date_str = f"{now.month}.{now.day}"
+
+            title = f"{date_str}【{company}】新开【{job}】岗"
+
+            # 复制至剪贴板
+            QApplication.clipboard().setText(title)
+
+            # 成功通知
+            InfoBar.success(
+                self.tr("复制成功"),
+                self.tr(f"已复制标题: {title}"),
+                duration=2000,
+                parent=self
+            )
 
     def _deleteSelected(self):
         indexes = self.tableView.selectionModel().selectedRows()
@@ -184,6 +247,8 @@ class HistoryDialog(MessageBoxBase):
         save_history_list(
             self._account_dir, self._model.get_remaining_history())
         self._deleted = True
+        # 刷新所有行的按钮以纠正 lambda 绑定的行号
+        self._initTableWidgets()
 
 
 class LogPanel(CardWidget):
@@ -281,16 +346,6 @@ class WechatInterface(ScrollArea):
             self.tr("选择目录"), self.publishCard)
         self.nextDayButton = PushButton(
             self.tr("下一天"), self.publishCard)
-        self.pauseButton = PushButton(
-            self.tr("暂停"), self.publishCard)
-        self.pauseButton.setVisible(False)
-        self.stopButton = PushButton(
-            self.tr("终止"), self.publishCard)
-        self.stopButton.setVisible(False)
-        self.publishButton = PrimaryPushButton(
-            self.tr("发布"), self.publishCard)
-        self.headlessCheck = CheckBox(
-            self.tr("隐藏浏览器"), self.publishCard)
 
         self.publishCardLayout.setContentsMargins(20, 11, 20, 11)
         self.publishCardLayout.setSpacing(12)
@@ -299,14 +354,66 @@ class WechatInterface(ScrollArea):
         self.publishCardLayout.addWidget(self.openFolderButton)
         self.publishCardLayout.addWidget(self.selectFolderButton)
         self.publishCardLayout.addWidget(self.nextDayButton)
-        self.publishCardLayout.addWidget(self.pauseButton)
-        self.publishCardLayout.addWidget(self.stopButton)
-        self.publishCardLayout.addWidget(self.headlessCheck)
-        self.publishCardLayout.addWidget(self.publishButton)
         self.publishCard.setFixedHeight(73)
 
-        # 发布方案卡片
-        self.schemeCard = CardWidget(self.publishGroup)
+        # 模板管理卡片
+        self.templateCard = CardWidget(self.publishGroup)
+        self.templateCardLayout = QHBoxLayout(self.templateCard)
+        self.templateCardVBox = QVBoxLayout()
+        self.templateTitleLabel = StrongBodyLabel(
+            self.tr("模板管理"), self.templateCard)
+        self.templateDescLabel = CaptionLabel(
+            self.tr("复制 Prompt 让 AI 生成模板，或手动添加 JSON 模板"),
+            self.templateCard)
+
+        self.templateCardVBox.setSpacing(0)
+        self.templateCardVBox.addWidget(self.templateTitleLabel)
+        self.templateCardVBox.addWidget(self.templateDescLabel)
+
+        self.copyPromptButton = PushButton(
+            self.tr("复制 Prompt"), self.templateCard)
+        self.categoryCombo = ComboBox(self.templateCard)
+        self.categoryCombo.addItems(TEMPLATE_CATEGORIES)
+        self.categoryCombo.setFixedWidth(80)
+        self.addTemplateButton = PushButton(
+            self.tr("添加模板"), self.templateCard)
+
+        self.templateCardLayout.setContentsMargins(20, 11, 20, 11)
+        self.templateCardLayout.setSpacing(12)
+        self.templateCardLayout.addLayout(self.templateCardVBox)
+        self.templateCardLayout.addStretch(1)
+        self.templateCardLayout.addWidget(self.copyPromptButton)
+        self.templateCardLayout.addWidget(self.categoryCombo)
+        self.templateCardLayout.addWidget(self.addTemplateButton)
+        self.templateCard.setFixedHeight(73)
+
+        # ---- 同时发布到组 ----
+        self.publishTargetGroup = SettingCardGroup(
+            self.tr("同时发布到"), self.scrollWidget)
+
+        # 发布目标卡片（多选账号）
+        self.targetCard = CardWidget(self.publishTargetGroup)
+        self.targetCardLayout = QHBoxLayout(self.targetCard)
+        self.targetCardVBox = QVBoxLayout()
+        self.targetTitleLabel = StrongBodyLabel(
+            self.tr("发布目标"), self.targetCard)
+        self.targetDescLabel = CaptionLabel(
+            self.tr("选择要同时发布到的公众号"), self.targetCard)
+        self.accountMultiCombo = MultiSelectionComboBox(self.targetCard)
+        self.accountMultiCombo.setFixedWidth(300)
+
+        self.targetCardVBox.setSpacing(0)
+        self.targetCardVBox.addWidget(self.targetTitleLabel)
+        self.targetCardVBox.addWidget(self.targetDescLabel)
+        self.targetCardLayout.setContentsMargins(20, 11, 20, 11)
+        self.targetCardLayout.setSpacing(16)
+        self.targetCardLayout.addLayout(self.targetCardVBox)
+        self.targetCardLayout.addStretch(1)
+        self.targetCardLayout.addWidget(self.accountMultiCombo)
+        self.targetCard.setFixedHeight(73)
+
+        # 发布方案卡片（从发布设置移过来）
+        self.schemeCard = CardWidget(self.publishTargetGroup)
         self.schemeCardLayout = QHBoxLayout(self.schemeCard)
         self.schemeCardVBox = QVBoxLayout()
         self.schemeTitleLabel = StrongBodyLabel(
@@ -327,8 +434,8 @@ class WechatInterface(ScrollArea):
         self.schemeCardLayout.addWidget(self.schemeCombo)
         self.schemeCard.setFixedHeight(73)
 
-        # 日期范围卡片（方案2 专用）
-        self.dateRangeCard = CardWidget(self.publishGroup)
+        # 日期范围卡片（方案2 专用，从发布设置移过来）
+        self.dateRangeCard = CardWidget(self.publishTargetGroup)
         self.dateRangeCardLayout = QHBoxLayout(self.dateRangeCard)
         self.dateRangeCardVBox = QVBoxLayout()
         self.dateRangeTitleLabel = StrongBodyLabel(
@@ -356,36 +463,39 @@ class WechatInterface(ScrollArea):
         self.dateRangeCard.setFixedHeight(73)
         self.dateRangeCard.setVisible(False)
 
-        # 模板管理卡片
-        self.templateCard = CardWidget(self.publishGroup)
-        self.templateCardLayout = QHBoxLayout(self.templateCard)
-        self.templateCardVBox = QVBoxLayout()
-        self.templateTitleLabel = StrongBodyLabel(
-            self.tr("模板管理"), self.templateCard)
-        self.templateDescLabel = CaptionLabel(
-            self.tr("复制 Prompt 让 AI 生成模板，或手动添加 JSON 模板"),
-            self.templateCard)
+        # 操作栏卡片（发布按钮等）
+        self.actionCard = CardWidget(self.publishTargetGroup)
+        self.actionCardLayout = QHBoxLayout(self.actionCard)
+        self.actionCardVBox = QVBoxLayout()
+        self.actionTitleLabel = StrongBodyLabel(
+            self.tr("操作"), self.actionCard)
+        self.actionDescLabel = CaptionLabel(
+            self.tr("发布到所有选中的公众号"), self.actionCard)
 
-        self.templateCardVBox.setSpacing(0)
-        self.templateCardVBox.addWidget(self.templateTitleLabel)
-        self.templateCardVBox.addWidget(self.templateDescLabel)
+        self.actionCardVBox.setSpacing(0)
+        self.actionCardVBox.addWidget(self.actionTitleLabel)
+        self.actionCardVBox.addWidget(self.actionDescLabel)
 
-        self.copyPromptButton = PushButton(
-            self.tr("复制 Prompt"), self.templateCard)
-        self.categoryCombo = ComboBox(self.templateCard)
-        self.categoryCombo.addItems(["校招", "实习"])
-        self.categoryCombo.setFixedWidth(80)
-        self.addTemplateButton = PushButton(
-            self.tr("添加模板"), self.templateCard)
+        self.headlessCheck = CheckBox(
+            self.tr("隐藏浏览器"), self.actionCard)
+        self.pauseButton = PushButton(
+            self.tr("暂停"), self.actionCard)
+        self.pauseButton.setVisible(False)
+        self.stopButton = PushButton(
+            self.tr("终止"), self.actionCard)
+        self.stopButton.setVisible(False)
+        self.publishButton = PrimaryPushButton(
+            self.tr("发布"), self.actionCard)
 
-        self.templateCardLayout.setContentsMargins(20, 11, 20, 11)
-        self.templateCardLayout.setSpacing(12)
-        self.templateCardLayout.addLayout(self.templateCardVBox)
-        self.templateCardLayout.addStretch(1)
-        self.templateCardLayout.addWidget(self.copyPromptButton)
-        self.templateCardLayout.addWidget(self.categoryCombo)
-        self.templateCardLayout.addWidget(self.addTemplateButton)
-        self.templateCard.setFixedHeight(73)
+        self.actionCardLayout.setContentsMargins(20, 11, 20, 11)
+        self.actionCardLayout.setSpacing(12)
+        self.actionCardLayout.addLayout(self.actionCardVBox)
+        self.actionCardLayout.addStretch(1)
+        self.actionCardLayout.addWidget(self.headlessCheck)
+        self.actionCardLayout.addWidget(self.pauseButton)
+        self.actionCardLayout.addWidget(self.stopButton)
+        self.actionCardLayout.addWidget(self.publishButton)
+        self.actionCard.setFixedHeight(73)
 
         # ---- 操作日志（全宽，标题栏带历史记录按钮）----
         self.logPanel = LogPanel(self.tr("操作日志"), self.scrollWidget)
@@ -400,9 +510,13 @@ class WechatInterface(ScrollArea):
 
     def _loadAccounts(self):
         self.accountCombo.clear()
+        self.accountMultiCombo.clear()
         accounts = get_accounts()
         if accounts:
             self.accountCombo.addItems(accounts)
+            self.accountMultiCombo.addItems(accounts)
+            # 主账号默认勾选
+            self.accountMultiCombo.addSelectedIndex(0)
         else:
             self.accountCombo.addItem(self.tr("暂无账号"))
 
@@ -423,10 +537,12 @@ class WechatInterface(ScrollArea):
             self.templateInfoLabel.setText(self.tr("请先选择账号"))
             return
         tdir.mkdir(parents=True, exist_ok=True)
-        recruit = load_templates(tdir, "校招")
-        intern_ = load_templates(tdir, "实习")
+        counts = [
+            f"{category} {len(load_templates(tdir, category))} 个"
+            for category in TEMPLATE_CATEGORIES
+        ]
         self.templateInfoLabel.setText(
-            f"{tdir}  (校招 {len(recruit)} 个, 实习 {len(intern_)} 个)")
+            f"{tdir}  ({', '.join(counts)})")
 
     def __initWidget(self):
         self.resize(1000, 800)
@@ -452,14 +568,18 @@ class WechatInterface(ScrollArea):
 
         self.accountGroup.addSettingCard(self.accountCard)
         self.publishGroup.addSettingCard(self.publishCard)
-        self.publishGroup.addSettingCard(self.schemeCard)
-        self.publishGroup.addSettingCard(self.dateRangeCard)
         self.publishGroup.addSettingCard(self.templateCard)
+
+        self.publishTargetGroup.addSettingCard(self.targetCard)
+        self.publishTargetGroup.addSettingCard(self.schemeCard)
+        self.publishTargetGroup.addSettingCard(self.dateRangeCard)
+        self.publishTargetGroup.addSettingCard(self.actionCard)
 
         self.expandLayout.setSpacing(28)
         self.expandLayout.setContentsMargins(36, 10, 36, 0)
         self.expandLayout.addWidget(self.accountGroup)
         self.expandLayout.addWidget(self.publishGroup)
+        self.expandLayout.addWidget(self.publishTargetGroup)
         self.expandLayout.addWidget(self.logPanel)
 
     def _connectSignalToSlot(self):
@@ -481,16 +601,13 @@ class WechatInterface(ScrollArea):
     def _onSchemeChanged(self, scheme_name: str):
         """方案切换时显示/隐藏对应的 UI 控件"""
         is_scheme2 = "周日汇总" in scheme_name
-        # 模板路径相关控件
-        self.templatePathLabel.setVisible(not is_scheme2)
-        self.templateInfoLabel.setVisible(not is_scheme2)
-        self.openFolderButton.setVisible(not is_scheme2)
-        self.selectFolderButton.setVisible(not is_scheme2)
-        self.nextDayButton.setVisible(not is_scheme2)
+        # 发布设置整个分组（模板路径 + 模板管理）
+        self.publishGroup.setVisible(not is_scheme2)
         # 日期范围卡片
         self.dateRangeCard.setVisible(is_scheme2)
-        # 模板管理卡片
-        self.templateCard.setVisible(not is_scheme2)
+        # 重新计算分组高度
+        self.publishTargetGroup.adjustSize()
+        self.scrollWidget.adjustSize()
 
     def _onAccountChanged(self, _text):
         """账号切换时重置自定义模板目录，回到新账号的当天目录"""
@@ -611,6 +728,10 @@ class WechatInterface(ScrollArea):
         idx = self.accountCombo.findText(account_name)
         if idx >= 0:
             self.accountCombo.setCurrentIndex(idx)
+        # 新登录的账号也在多选中勾选
+        multi_idx = self.accountMultiCombo.findText(account_name)
+        if multi_idx >= 0:
+            self.accountMultiCombo.addSelectedIndex(multi_idx)
         InfoBar.success(self.tr("成功"),
                         self.tr("账号 {} 登录成功").format(account_name),
                         duration=3000, parent=self)
@@ -622,9 +743,21 @@ class WechatInterface(ScrollArea):
                       duration=5000, parent=self)
 
     def _publish(self):
-        account = self.accountCombo.currentText()
-        if not account or account == self.tr("暂无账号"):
-            InfoBar.warning(self.tr("提示"), self.tr("请先登录账号"),
+        # 从多选组件获取所有勾选的账号
+        selected_indexes = self.accountMultiCombo.selectedIndexes()
+        if not selected_indexes:
+            InfoBar.warning(self.tr("提示"), self.tr("请至少选择一个发布目标"),
+                            duration=2000, parent=self)
+            return
+
+        accounts = []
+        for idx in selected_indexes:
+            text = self.accountMultiCombo.itemText(idx)
+            if text and text != self.tr("暂无账号"):
+                accounts.append(text)
+
+        if not accounts:
+            InfoBar.warning(self.tr("提示"), self.tr("请至少选择一个发布目标"),
                             duration=2000, parent=self)
             return
 
@@ -650,28 +783,12 @@ class WechatInterface(ScrollArea):
                                 duration=2000, parent=self)
                 return
 
-            self.logPanel.clear()
-            self.publishButton.setEnabled(False)
-            self.publishButton.setText(self.tr("发布中..."))
-            self.pauseButton.setVisible(True)
-            self.stopButton.setVisible(True)
-
-            self._publishThread = Scheme2Thread(
-                account, start_d, end_d, self,
-                headless=self.headlessCheck.isChecked())
-            self._publishThread.logMessage.connect(self.logPanel.append)
-            self._publishThread.publishWaiting.connect(
-                self._onPublishWaiting)
-            self._publishThread.publishSuccess.connect(
-                self._onPublishSuccess)
-            self._publishThread.publishFailed.connect(
-                self._onPublishFailed)
-            self._publishThread.publishStopped.connect(
-                self._onPublishStopped)
-            self._publishThread.start()
+            self._startMultiPublish(accounts, 'scheme2',
+                                    start_date=start_d, end_date=end_d)
             return
 
         # ---- 方案1：草稿模板 ----
+        # 验证主账号的模板（附加账号由线程自行验证）
         tdir = self._getTemplateDir()
         if tdir is None:
             InfoBar.warning(self.tr("提示"), self.tr("请先选择模板目录"),
@@ -684,21 +801,82 @@ class WechatInterface(ScrollArea):
                             self.tr("校招和实习都需要有模板"),
                             duration=3000, parent=self)
             return
+        self._startMultiPublish(accounts, 'scheme1')
+
+    def _startMultiPublish(self, accounts: list, scheme: str, **kwargs):
+        """为多个账号创建并启动发布线程"""
         self.logPanel.clear()
         self.publishButton.setEnabled(False)
         self.publishButton.setText(self.tr("发布中..."))
         self.pauseButton.setVisible(True)
         self.stopButton.setVisible(True)
-        ThreadClass = PUBLISH_SCHEMES[self.schemeCombo.currentText()]
-        self._publishThread = ThreadClass(
-            account, tdir, self,
-            headless=self.headlessCheck.isChecked())
-        self._publishThread.logMessage.connect(self.logPanel.append)
-        self._publishThread.publishWaiting.connect(self._onPublishWaiting)
-        self._publishThread.publishSuccess.connect(self._onPublishSuccess)
-        self._publishThread.publishFailed.connect(self._onPublishFailed)
-        self._publishThread.publishStopped.connect(self._onPublishStopped)
-        self._publishThread.start()
+
+        self._publishThreads = []
+        self._completedCount = 0
+        self._totalPublishers = len(accounts)
+        self._hasFailed = False
+
+        headless = self.headlessCheck.isChecked()
+
+        # 获取当前模板目录名（如 "3.16"），让所有账号用同一天的模板
+        templates_dir_name = None
+        if scheme == 'scheme1':
+            tdir = self._getTemplateDir()
+            if tdir:
+                templates_dir_name = tdir.name
+
+        for account in accounts:
+            if scheme == 'scheme2':
+                thread = Scheme2Thread(
+                    account,
+                    kwargs['start_date'], kwargs['end_date'],
+                    parent=self, headless=headless)
+            else:
+                ThreadClass = PUBLISH_SCHEMES[self.schemeCombo.currentText()]
+                # 构建该账号对应的模板目录
+                account_tdir = ACCOUNTS_DIR / account / "templates" / templates_dir_name
+                thread = ThreadClass(
+                    account, account_tdir, parent=self, headless=headless)
+
+            # 日志带账号前缀
+            thread.logMessage.connect(
+                lambda msg, a=account: self.logPanel.append(f"[{a}] {msg}"))
+            thread.publishWaiting.connect(self._onPublishWaiting)
+            thread.publishSuccess.connect(self._onSinglePublishSuccess)
+            thread.publishFailed.connect(self._onSinglePublishFailed)
+            thread.publishStopped.connect(self._onSinglePublishStopped)
+            self._publishThreads.append(thread)
+
+        for t in self._publishThreads:
+            t.start()
+
+    def _resetPublishUI(self):
+        """重置发布按钮状态"""
+        self.publishButton.setEnabled(True)
+        self.publishButton.setText(self.tr("发布"))
+        self.pauseButton.setVisible(False)
+        self.pauseButton.setText(self.tr("暂停"))
+        self.stopButton.setVisible(False)
+        self.stopButton.setEnabled(True)
+        self.stopButton.setText(self.tr("终止"))
+
+    def _onSinglePublishSuccess(self):
+        self._completedCount += 1
+        if self._completedCount >= self._totalPublishers:
+            self._resetPublishUI()
+            if not self._hasFailed:
+                InfoBar.success(self.tr("完成"),
+                                self.tr("所有账号发布任务已完成"),
+                                duration=3000, parent=self)
+
+    def _onSinglePublishFailed(self, error: str):
+        self._hasFailed = True
+        self._completedCount += 1
+        self.logPanel.append(f"[错误] {error}")
+        if self._completedCount >= self._totalPublishers:
+            self._resetPublishUI()
+            InfoBar.error(self.tr("发布失败"), error,
+                          duration=5000, parent=self)
 
     def _onPublishWaiting(self):
         self.pauseButton.setVisible(False)
@@ -711,47 +889,49 @@ class WechatInterface(ScrollArea):
                      duration=8000, parent=self)
 
     def _onPublishSuccess(self):
-        self.publishButton.setEnabled(True)
-        self.publishButton.setText(self.tr("发布"))
-        self.pauseButton.setVisible(False)
-        self.stopButton.setVisible(False)
+        self._resetPublishUI()
         InfoBar.success(self.tr("完成"), self.tr("发布任务已完成"),
                         duration=3000, parent=self)
 
-    def _onPublishFailed(self, error: str):
-        self.publishButton.setEnabled(True)
-        self.publishButton.setText(self.tr("发布"))
-        self.pauseButton.setVisible(False)
-        self.stopButton.setVisible(False)
-        self.logPanel.append(f"[错误] {error}")
-        InfoBar.error(self.tr("发布失败"), error,
-                      duration=5000, parent=self)
-
     def _pausePublish(self):
-        if not hasattr(self, '_publishThread') or not self._publishThread.isRunning():
+        if not hasattr(self, '_publishThreads'):
             return
-        if self._publishThread._pause_requested:
-            self._publishThread.request_resume()
+        any_running = any(t.isRunning() for t in self._publishThreads)
+        if not any_running:
+            return
+        # 切换所有线程的暂停/继续状态
+        any_paused = any(t._pause_requested for t in self._publishThreads
+                         if t.isRunning())
+        for t in self._publishThreads:
+            if not t.isRunning():
+                continue
+            if any_paused:
+                t.request_resume()
+            else:
+                t.request_pause()
+        if any_paused:
             self.pauseButton.setText(self.tr("暂停"))
             self.logPanel.append("[操作] 已继续")
         else:
-            self._publishThread.request_pause()
             self.pauseButton.setText(self.tr("继续"))
             self.logPanel.append("[操作] 已暂停，点击「继续」恢复")
 
     def _stopPublish(self):
-        if hasattr(self, '_publishThread') and self._publishThread.isRunning():
-            self._publishThread.request_stop()
+        if not hasattr(self, '_publishThreads'):
+            return
+        any_running = False
+        for t in self._publishThreads:
+            if t.isRunning():
+                t.request_stop()
+                any_running = True
+        if any_running:
             self.stopButton.setEnabled(False)
             self.stopButton.setText(self.tr("终止中..."))
 
-    def _onPublishStopped(self):
-        self.publishButton.setEnabled(True)
-        self.publishButton.setText(self.tr("发布"))
-        self.pauseButton.setVisible(False)
-        self.pauseButton.setText(self.tr("暂停"))
-        self.stopButton.setVisible(False)
-        self.stopButton.setEnabled(True)
-        self.stopButton.setText(self.tr("终止"))
-        InfoBar.warning(self.tr("已停止"), self.tr("发布任务已手动停止"),
-                        duration=3000, parent=self)
+    def _onSinglePublishStopped(self):
+        self._completedCount += 1
+        if self._completedCount >= self._totalPublishers:
+            self._resetPublishUI()
+            InfoBar.warning(self.tr("已停止"),
+                            self.tr("发布任务已手动停止"),
+                            duration=3000, parent=self)
