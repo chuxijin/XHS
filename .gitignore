@@ -8,3 +8,18 @@ wheels/
 
 # Virtual environments
 .venv
+
+# IDEs and Agent settings
+.agents/
+.antigravitycli/
+.claude/
+
+# Session & sensitive files
+xhs_session.json
+
+# Build outputs
+Output/
+
+# Windows system files or trash
+nul
+
