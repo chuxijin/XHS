@@ -9,6 +9,7 @@ from qfluentwidgets import FluentIcon as FIF
 from .setting_interface import SettingInterface
 from .xhs import XhsInterface
 from .wechat import WechatInterface
+from .video_cut_interface import VideoCutInterface
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -24,6 +25,7 @@ class MainWindow(FluentWindow):
         # TODO: create sub interface
         self.xhsInterface = XhsInterface(self)
         self.wechatInterface = WechatInterface(self)
+        self.videoCutInterface = VideoCutInterface(self)
         self.settingInterface = SettingInterface(self)
 
         self.connectSignalToSlot()
@@ -39,6 +41,7 @@ class MainWindow(FluentWindow):
 
         self.addSubInterface(self.xhsInterface, FIF.EDIT, self.tr('小红书'))
         self.addSubInterface(self.wechatInterface, FIF.CHAT, self.tr('公众号'))
+        self.addSubInterface(self.videoCutInterface, FIF.MOVIE, self.tr('智能剪辑'))
 
         # add custom widget to bottom
         self.addSubInterface(

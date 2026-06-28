@@ -2,6 +2,9 @@
 import os
 import sys
 
+import qfluentwidgetspro
+qfluentwidgetspro.setLicense("mGR3+Zzt2pWCCCUVLKMgV454OWBvqHhn77jQgMs2i7uowRsodYi8aM2Jn0OPk24/i2UsbgVgXV1oK9jdwgsRYbVYJDLvDCJYair3kFXMO5rWx7WzNYNCB4jjLzLS8HS4K79hWpFCIgrxCkvZRf73AvNTNlTWk3cxIK122P3KjRUf7wrAOA51gH6xVSGPEKGUQZXg0aHy1yyqB9TZSGLzrbAfRhv8KeTpIy1x9ZyAYyUwnP1gPewnZc8KVFwkYEPvbhFebLNRcjCB0pDXakts+5nLM0WL8YhPEmmHIpk6BI6NVvcJMg2bGZjfwScLb0mc")
+
 from PySide6.QtCore import Qt, QTranslator
 from PySide6.QtGui import QFont
 from PySide6.QtWidgets import QApplication
