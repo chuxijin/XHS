@@ -1,0 +1,26 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - generic [ref=e8]:
+      - text: 请使用
+      - generic [ref=e9]: 夸克网盘APP
+      - text: 扫码登录
+    - generic [ref=e11]:
+      - generic [ref=e12]: 或夸克APP扫码登录
+      - button "下载夸克网盘APP" [ref=e17] [cursor=pointer]
+  - generic [ref=e18]:
+    - generic [ref=e19]: 手机号登录
+    - iframe [ref=e23]:
+      - generic [ref=f1e3]:
+        - generic [ref=f1e4]:
+          - paragraph [ref=f1e5]:
+            - textbox "手机号" [ref=f1e6]
+          - paragraph [ref=f1e8]:
+            - textbox "短信验证码" [ref=f1e9]
+            - generic [ref=f1e10] [cursor=pointer]: 获取短信验证码
+        - button "登录" [ref=f1e13] [cursor=pointer]
+        - generic:
+          - link:
+            - /url: https://uop.quark.cn/cas/forgotpassword?client_id=532&redirect_uri=http%3A%2F%2Fid.uc.cn%2F
+    - generic [ref=e24]:
+      - generic [ref=e25]: 其他登录方式
+      - generic [ref=e29]: 登录表示您已阅读并同意用户协议和隐私政策

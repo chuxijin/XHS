@@ -12,6 +12,7 @@ args = [
     '--standalone',
     '--windows-disable-console',
     '--follow-import-to=app',
+    '--include-package=Crypto',
     '--plugin-enable=pyside6,numpy',
     '--include-qt-plugins=sensible,styles',
     '--msvc=latest',
@@ -19,15 +20,15 @@ args = [
     '--show-progress',
     '--windows-icon-from-ico=app/resource/images/logo.ico',
     '--include-module=app',
-    '--nofollow-import-to=numpy,scipy,PIL,pywin,colorthief,pycryptodome',
-    '--follow-import-to=win32com,win32gui,win32print,qfluentwidgets,qfluentwidgetspro,app',
+    '--nofollow-import-to=numpy,scipy,PIL,pywin,colorthief',
+    '--follow-import-to=win32com,win32gui,win32print,qfluentwidgets,qfluentwidgetspro,Crypto,app',
     '--output-dir=dist/gallery',
-    'gallery.py',
+    'main.py',
 ]
 os.system(' '.join(args))
 
 # copy site-packages to dist folder
-dist_folder = Path("dist/gallery/gallery.dist")
+dist_folder = Path("dist/gallery/main.dist")
 site_packages = Path(get_python_lib())
 
 copied_libs = [

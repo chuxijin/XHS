@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>公众号横滑多图生成器</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --text: #202124;
+      --muted: #7a7f87;
+      --border: #dfe3ea;
+      --primary: #20c05c;
+      --primary-soft: #eaf9ef;
+      --danger: #e5484d;
+      --shadow: 0 14px 38px rgba(18, 32, 58, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: 280px minmax(420px, 1fr) 380px;
+      gap: 18px;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .preview-panel {
+      padding: 22px;
+    }
+
+    .editor-panel {
+      padding: 22px 24px;
+    }
+
+    .output-panel {
+      padding: 18px;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 18px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .phone {
+      width: 224px;
+      min-height: 392px;
+      margin: 0 auto;
+      border: 1px solid var(--border);
+      background: #fff;
+    }
+
+    .phone-top {
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #eef1f5;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .phone-body {
+      padding: 16px 10px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .label {
+      color: #4b515a;
+      padding-top: 6px;
+    }
+
+    .radios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .radio {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    input[type="radio"] {
+      accent-color: var(--primary);
+    }
+
+    .image-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .thumb {
+      position: relative;
+      width: 76px;
+      height: 92px;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #f0f2f5;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-actions {
+      position: absolute;
+      inset: auto 3px 3px 3px;
+      display: flex;
+      gap: 3px;
+    }
+
+    .thumb-actions button {
+      flex: 1;
+      height: 20px;
+      border: 0;
+      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.58);
+      color: #fff;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .add-card {
+      width: 76px;
+      height: 92px;
+      border: 1px dashed var(--primary);
+      color: var(--primary);
+      background: var(--primary-soft);
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      font-weight: 600;
+    }
+
+    .add-card span:first-child {
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .field {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 9px 10px;
+      background: #fff;
+      outline: none;
+    }
+
+    .field:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(32, 192, 92, 0.13);
+    }
+
+    textarea.field {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .inline-fields {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .inline-field label {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .tool-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px 12px;
+      margin: 10px 0;
+    }
+
+    .tool-line span {
+      color: var(--muted);
+    }
+
+    .link-btn {
+      border: 0;
+      background: transparent;
+      color: #1f4f8f;
+      cursor: pointer;
+      padding: 2px 0;
+    }
+
+    .link-btn.danger {
+      color: var(--danger);
+    }
+
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      border-radius: 5px;
+      min-width: 92px;
+      height: 38px;
+      cursor: pointer;
+    }
+
+    .btn.primary {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .code {
+      width: 100%;
+      min-height: 520px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px;
+      background: #fbfcfe;
+      color: #30343a;
+      font-family: Consolas, "SFMono-Regular", monospace;
+      font-size: 12px;
+      line-height: 1.5;
+      resize: vertical;
+    }
+
+    .generated-carousel {
+      margin: 0 auto;
+    }
+
+    .copy-source {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+      width: 578px;
+      background: #fff;
+    }
+
+    @media (max-width: 1080px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        width: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="shell">
+      <section class="panel preview-panel">
+        <h1>预览</h1>
+        <div class="phone">
+          <div class="phone-top">壹伴助手</div>
+          <div class="phone-body" id="preview"></div>
+        </div>
+      </section>
+
+      <section class="panel editor-panel">
+        <h1>编辑样式</h1>
+
+        <div class="form-row">
+          <div class="label">图片比例：</div>
+          <div class="radios" id="ratioGroup">
+            <label class="radio"><input type="radio" name="ratio" value="1:1">1:1</label>
+            <label class="radio"><input type="radio" name="ratio" value="3:2">3:2</label>
+            <label class="radio"><input type="radio" name="ratio" value="3:4" checked>3:4</label>
+            <label class="radio"><input type="radio" name="ratio" value="16:9">16:9</label>
+            <label class="radio"><input type="radio" name="ratio" value="origin">原图</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label">滑动类型：</div>
+          <div class="radios">
+            <label class="radio"><input type="radio" name="slideType" value="adsorb" checked>动效一（吸附滑动）</label>
+            <label class="radio"><input type="radio" name="slideType" value="free">动效二（自由滑动）</label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label">图片设置：</div>
+          <div>
+            <div class="image-list" id="imageList"></div>
+            <p class="hint">建议先把图片上传到公众号素材，再粘贴 mmbiz 图片地址。每行一个地址。</p>
+            <textarea class="field" id="imageInput" placeholder="https://mmbiz.qpic.cn/...&#10;https://mmbiz.qpic.cn/..."></textarea>
+            <div class="actions">
+              <button class="btn" id="loadImagesBtn">载入图片</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label">样式调整：</div>
+          <div>
+            <div class="inline-fields">
+              <div class="inline-field">
+                <label for="widthInput">组件宽度 %</label>
+                <input class="field" id="widthInput" type="number" min="40" max="100" value="70">
+              </div>
+              <div class="inline-field">
+                <label for="radiusInput">圆角 px</label>
+                <input class="field" id="radiusInput" type="number" min="0" max="80" value="32">
+              </div>
+              <div class="inline-field">
+                <label for="paddingInput">内边距 px</label>
+                <input class="field" id="paddingInput" type="number" min="0" max="160" value="60">
+              </div>
+            </div>
+            <div class="tool-line">
+              <span>边距：</span>
+              <button class="link-btn" data-action="margin-add">增加</button>
+              <button class="link-btn" data-action="margin-sub">减少</button>
+              <button class="link-btn" data-action="margin-clear">清空</button>
+              <span>空行：</span>
+              <button class="link-btn" data-action="blank-before">前空行</button>
+              <button class="link-btn" data-action="blank-after">后空行</button>
+            </div>
+            <div class="tool-line">
+              <span>编辑：</span>
+              <button class="link-btn" data-action="zoom-add">放大</button>
+              <button class="link-btn" data-action="zoom-sub">缩小</button>
+              <button class="link-btn" data-action="copy">复制</button>
+              <button class="link-btn danger" data-action="delete">删除</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="label">修改文案：</div>
+          <textarea class="field" id="captionInput">←左右滑动查看更多→
+Slide for more photos</textarea>
+        </div>
+
+        <div class="actions">
+          <button class="btn" id="resetBtn">取消</button>
+          <button class="btn primary" id="copyBtn">复制公众号代码</button>
+        </div>
+      </section>
+
+      <section class="panel output-panel">
+        <h2>生成代码</h2>
+        <textarea class="code" id="output" spellcheck="false"></textarea>
+        <p class="hint">复制后粘贴到公众号正文。发布前请务必用手机预览一次。</p>
+      </section>
+    </div>
+    <div class="copy-source" id="copySource" contenteditable="true" aria-hidden="true"></div>
+  </main>
+
+  <script>
+    const state = {
+      ratio: "3:4",
+      slideType: "adsorb",
+      width: 70,
+      radius: 32,
+      padding: 60,
+      marginTop: 0,
+      marginBottom: 0,
+      blankBefore: 1,
+      blankAfter: 1,
+      caption: "←左右滑动查看更多→\nSlide for more photos",
+      images: [
+        "https://mmbiz.qpic.cn/sz_mmbiz_png/dFHROBwvGZCY1h7VCNZRIWmiavFTYPtmRMBAIQ6ns0skdVH0349TYtL05DH9jfdOWZ7uDiady0DODEB3e0m51jlg/640?from=appmsg",
+        "https://mmbiz.qpic.cn/sz_mmbiz_png/byobzsYuvS9iaeWqPf72L44xgY5eQWz0Tuoq3QonDgYrK78yYUzyO9XSdOxib6UY13ygzOYuw34RluG47HbsrKfQ/640?from=appmsg",
+        "https://mmbiz.qpic.cn/sz_mmbiz_png/4esOJ82ANJsnKEAtiajFQ4gTfZXydsTiatfDQoib5cp3YN26jWTxLMicrGFmMawO2syiaaaJ8r8UlsP5q4XRXDKHbVA/640?from=appmsg"
+      ]
+    };
+
+    const preview = document.getElementById("preview");
+    const output = document.getElementById("output");
+    const copySource = document.getElementById("copySource");
+    const imageList = document.getElementById("imageList");
+    const imageInput = document.getElementById("imageInput");
+    const widthInput = document.getElementById("widthInput");
+    const radiusInput = document.getElementById("radiusInput");
+    const paddingInput = document.getElementById("paddingInput");
+    const captionInput = document.getElementById("captionInput");
+
+    function escapeAttr(value) {
+      return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
+    }
+
+    function escapeText(value) {
+      return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function ratioSize() {
+      const map = {
+        "1:1": [1080, 1080],
+        "3:2": [1080, 720],
+        "3:4": [1080, 1440],
+        "16:9": [1080, 607.5],
+        "origin": [1080, 1440]
+      };
+      return map[state.ratio] || map["3:4"];
+    }
+
+    function captionHtml() {
+      return state.caption
+        .split(/\r?\n/)
+        .filter(Boolean)
+        .map(line => `<p style="margin:0;"><span>${escapeText(line)}</span></p>`)
+        .join("");
+    }
+
+    function blankHtml(count) {
+      return Array.from({ length: count }, () => '<section><span><br></span></section>').join("\n");
+    }
+
+    function buildCarousel() {
+      const images = state.images.length ? state.images : [""];
+      const count = images.length;
+      const [viewW, viewH] = ratioSize();
+      const pad = Math.max(0, Number(state.padding) || 0);
+      const innerW = Math.max(1, viewW - pad * 2);
+      const innerH = Math.max(1, viewH - pad * 2);
+      const snapType = state.slideType === "adsorb" ? "x mandatory" : "none";
+      const snapAlign = state.slideType === "adsorb" ? "start" : "none";
+      const radius = Math.max(0, Number(state.radius) || 0);
+      const marginTop = Math.max(0, Number(state.marginTop) || 0);
+      const marginBottom = Math.max(0, Number(state.marginBottom) || 0);
+      const width = Math.min(100, Math.max(40, Number(state.width) || 70));
+      const items = images.map(url => {
+        const safeUrl = escapeAttr(url.trim());
+        return `        <section style="flex:1;vertical-align:top;display:flex;justify-content:center;align-items:center;scroll-snap-align:${snapAlign};">
+          <svg style="width:100%;height:100%;" viewBox="0 0 ${viewW} ${viewH}">
+            <foreignObject width="${innerW}" height="${innerH}" x="${pad}" y="${pad}">
+              <section xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background-position:50% 50%;background-size:cover;background-repeat:no-repeat;border-radius:${radius}px;background-image:url(&quot;${safeUrl}&quot;);"></section>
+            </foreignObject>
+          </svg>
+        </section>`;
+      }).join("\n");
+
+      const main = `<section style="width:${width}%;margin-left:auto!important;margin-right:auto!important;margin-top:${marginTop}px;margin-bottom:${marginBottom}px;height:auto!important;">
+  <section style="width:100%;">
+    <section style="width:100%;overflow:scroll hidden;isolation:isolate;scroll-snap-type:${snapType};scroll-behavior:smooth;scrollbar-width:thin;-webkit-scrollbar-width:thin;line-height:0;pointer-events:visible;">
+      <section style="white-space:nowrap;width:${count * 100}%!important;max-width:${count * 100}%!important;display:flex;line-height:0;">
+${items}
+      </section>
+    </section>
+    <section style="padding:12px;text-align:center;max-height:78px;overflow-x:hidden;overflow-y:auto;isolation:isolate;scroll-behavior:smooth;scrollbar-width:thin;-webkit-scrollbar-width:thin;box-sizing:border-box;font-size:12px;font-family:PingFangSC-Regular, PingFang SC;color:#999;line-height:18px;">
+      ${captionHtml()}
+    </section>
+  </section>
+</section>`;
+
+      return [blankHtml(state.blankBefore), main, blankHtml(state.blankAfter)]
+        .filter(Boolean)
+        .join("\n");
+    }
+
+    function renderImages() {
+      imageList.innerHTML = "";
+      state.images.forEach((url, index) => {
+        const box = document.createElement("div");
+        box.className = "thumb";
+        box.innerHTML = `<img alt="图片${index + 1}" src="${escapeAttr(url)}">
+          <div class="thumb-actions">
+            <button type="button" data-index="${index}" data-img-action="up">前</button>
+            <button type="button" data-index="${index}" data-img-action="down">后</button>
+            <button type="button" data-index="${index}" data-img-action="remove">删</button>
+          </div>`;
+        imageList.appendChild(box);
+      });
+
+      const add = document.createElement("button");
+      add.type = "button";
+      add.className = "add-card";
+      add.innerHTML = "<span>+</span><span>添加图片</span>";
+      add.addEventListener("click", () => {
+        imageInput.focus();
+      });
+      imageList.appendChild(add);
+    }
+
+    function syncControls() {
+      document.querySelectorAll("input[name='ratio']").forEach(input => {
+        input.checked = input.value === state.ratio;
+      });
+      document.querySelectorAll("input[name='slideType']").forEach(input => {
+        input.checked = input.value === state.slideType;
+      });
+      widthInput.value = state.width;
+      radiusInput.value = state.radius;
+      paddingInput.value = state.padding;
+      captionInput.value = state.caption;
+      imageInput.value = state.images.join("\n");
+    }
+
+    function render() {
+      const html = buildCarousel();
+      preview.innerHTML = html;
+      copySource.innerHTML = html;
+      output.value = html;
+      renderImages();
+    }
+
+    function loadImagesFromTextarea() {
+      const urls = imageInput.value
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean);
+      state.images = urls;
+      render();
+    }
+
+    document.addEventListener("change", event => {
+      const target = event.target;
+      if (target.name === "ratio") {
+        state.ratio = target.value;
+      }
+      if (target.name === "slideType") {
+        state.slideType = target.value;
+      }
+      render();
+    });
+
+    [widthInput, radiusInput, paddingInput].forEach(input => {
+      input.addEventListener("input", () => {
+        state.width = Number(widthInput.value);
+        state.radius = Number(radiusInput.value);
+        state.padding = Number(paddingInput.value);
+        render();
+      });
+    });
+
+    captionInput.addEventListener("input", () => {
+      state.caption = captionInput.value;
+      render();
+    });
+
+    document.getElementById("loadImagesBtn").addEventListener("click", loadImagesFromTextarea);
+
+    imageList.addEventListener("click", event => {
+      const button = event.target.closest("button[data-img-action]");
+      if (!button) {
+        return;
+      }
+      const index = Number(button.dataset.index);
+      const action = button.dataset.imgAction;
+      if (action === "remove") {
+        state.images.splice(index, 1);
+      }
+      if (action === "up" && index > 0) {
+        [state.images[index - 1], state.images[index]] = [state.images[index], state.images[index - 1]];
+      }
+      if (action === "down" && index < state.images.length - 1) {
+        [state.images[index + 1], state.images[index]] = [state.images[index], state.images[index + 1]];
+      }
+      syncControls();
+      render();
+    });
+
+    document.querySelector(".editor-panel").addEventListener("click", async event => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) {
+        return;
+      }
+      const action = button.dataset.action;
+      if (action === "margin-add") {
+        state.marginTop += 8;
+        state.marginBottom += 8;
+      }
+      if (action === "margin-sub") {
+        state.marginTop = Math.max(0, state.marginTop - 8);
+        state.marginBottom = Math.max(0, state.marginBottom - 8);
+      }
+      if (action === "margin-clear") {
+        state.marginTop = 0;
+        state.marginBottom = 0;
+      }
+      if (action === "blank-before") {
+        state.blankBefore = state.blankBefore ? 0 : 1;
+      }
+      if (action === "blank-after") {
+        state.blankAfter = state.blankAfter ? 0 : 1;
+      }
+      if (action === "zoom-add") {
+        state.width = Math.min(100, state.width + 5);
+      }
+      if (action === "zoom-sub") {
+        state.width = Math.max(40, state.width - 5);
+      }
+      if (action === "delete") {
+        state.images = [];
+      }
+      if (action === "copy") {
+        await copyCode();
+      }
+      syncControls();
+      render();
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      state.ratio = "3:4";
+      state.slideType = "adsorb";
+      state.width = 70;
+      state.radius = 32;
+      state.padding = 60;
+      state.marginTop = 0;
+      state.marginBottom = 0;
+      state.blankBefore = 1;
+      state.blankAfter = 1;
+      state.caption = "←左右滑动查看更多→\nSlide for more photos";
+      state.images = [];
+      syncControls();
+      render();
+    });
+
+    async function copyCode() {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      copySource.innerHTML = buildCarousel();
+      range.selectNodeContents(copySource);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand("copy");
+      selection.removeAllRanges();
+    }
+
+    document.getElementById("copyBtn").addEventListener("click", copyCode);
+
+    syncControls();
+    render();
+  </script>
+</body>
+</html>

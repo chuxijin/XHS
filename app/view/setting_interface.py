@@ -7,13 +7,14 @@ from qfluentwidgets import (SwitchSettingCard, FolderListSettingCard,
                             OptionsSettingCard, PushSettingCard,
                             HyperlinkCard, PrimaryPushSettingCard, ScrollArea,
                             ComboBoxSettingCard, ExpandLayout, Theme, CustomColorSettingCard,
-                            setTheme, setThemeColor, isDarkTheme, setFont)
+                            setTheme, setThemeColor, isDarkTheme, setFont,
+                            CardWidget, LineEdit, StrongBodyLabel, CaptionLabel)
 from qfluentwidgets import FluentIcon as FIF
 from qfluentwidgets import SettingCardGroup as CardGroup
 from qfluentwidgets import InfoBar
 from PySide6.QtCore import Qt, Signal, QUrl, QStandardPaths, QThread
 from PySide6.QtGui import QDesktopServices, QFont
-from PySide6.QtWidgets import QWidget, QLabel, QFileDialog
+from PySide6.QtWidgets import QWidget, QLabel, QFileDialog, QVBoxLayout, QHBoxLayout
 
 from ..common.config import cfg, isWin11
 from ..common.setting import HELP_URL, FEEDBACK_URL, AUTHOR, VERSION, YEAR
@@ -137,6 +138,50 @@ class SettingInterface(ScrollArea):
             self.browserGroup
         )
 
+        # ---- 生图设置 ----
+        self.imageGenGroup = SettingCardGroup(
+            self.tr('生图设置'), self.scrollWidget)
+
+        self.imageGenBaseUrlCard = CardWidget(self.imageGenGroup)
+        _urlLayout = QHBoxLayout(self.imageGenBaseUrlCard)
+        _urlVBox = QVBoxLayout()
+        _urlVBox.addWidget(StrongBodyLabel(self.tr('API 地址'), self.imageGenBaseUrlCard))
+        _urlVBox.addWidget(CaptionLabel(self.tr('如 https://api.openai.com'), self.imageGenBaseUrlCard))
+        self.imageGenBaseUrlInput = LineEdit(self.imageGenBaseUrlCard)
+        self.imageGenBaseUrlInput.setText(cfg.get(cfg.imageGenBaseUrl))
+        _urlLayout.setContentsMargins(20, 11, 20, 11)
+        _urlLayout.addLayout(_urlVBox)
+        _urlLayout.addStretch(1)
+        _urlLayout.addWidget(self.imageGenBaseUrlInput)
+        self.imageGenBaseUrlCard.setFixedHeight(73)
+
+        self.imageGenApiKeyCard = CardWidget(self.imageGenGroup)
+        _keyLayout = QHBoxLayout(self.imageGenApiKeyCard)
+        _keyVBox = QVBoxLayout()
+        _keyVBox.addWidget(StrongBodyLabel(self.tr('API Key'), self.imageGenApiKeyCard))
+        _keyVBox.addWidget(CaptionLabel(self.tr('Bearer 令牌'), self.imageGenApiKeyCard))
+        self.imageGenApiKeyInput = LineEdit(self.imageGenApiKeyCard)
+        self.imageGenApiKeyInput.setText(cfg.get(cfg.imageGenApiKey))
+        self.imageGenApiKeyInput.setEchoMode(LineEdit.EchoMode.Password)
+        _keyLayout.setContentsMargins(20, 11, 20, 11)
+        _keyLayout.addLayout(_keyVBox)
+        _keyLayout.addStretch(1)
+        _keyLayout.addWidget(self.imageGenApiKeyInput)
+        self.imageGenApiKeyCard.setFixedHeight(73)
+
+        self.imageGenModelCard = CardWidget(self.imageGenGroup)
+        _modelLayout = QHBoxLayout(self.imageGenModelCard)
+        _modelVBox = QVBoxLayout()
+        _modelVBox.addWidget(StrongBodyLabel(self.tr('模型'), self.imageGenModelCard))
+        _modelVBox.addWidget(CaptionLabel(self.tr('如 gpt-image-2, dall-e-3'), self.imageGenModelCard))
+        self.imageGenModelInput = LineEdit(self.imageGenModelCard)
+        self.imageGenModelInput.setText(cfg.get(cfg.imageGenModel))
+        _modelLayout.setContentsMargins(20, 11, 20, 11)
+        _modelLayout.addLayout(_modelVBox)
+        _modelLayout.addStretch(1)
+        _modelLayout.addWidget(self.imageGenModelInput)
+        self.imageGenModelCard.setFixedHeight(73)
+
         # personalization
         self.personalGroup = SettingCardGroup(
             self.tr('Personalization'), self.scrollWidget)
@@ -247,6 +292,10 @@ class SettingInterface(ScrollArea):
 
         self.browserGroup.addSettingCard(self.browserCard)
 
+        self.imageGenGroup.addSettingCard(self.imageGenBaseUrlCard)
+        self.imageGenGroup.addSettingCard(self.imageGenApiKeyCard)
+        self.imageGenGroup.addSettingCard(self.imageGenModelCard)
+
         self.personalGroup.addSettingCard(self.micaCard)
         self.personalGroup.addSettingCard(self.themeCard)
         self.personalGroup.addSettingCard(self.zoomCard)
@@ -262,6 +311,7 @@ class SettingInterface(ScrollArea):
         self.expandLayout.setSpacing(28)
         self.expandLayout.setContentsMargins(36, 10, 36, 0)
         self.expandLayout.addWidget(self.browserGroup)
+        self.expandLayout.addWidget(self.imageGenGroup)
         self.expandLayout.addWidget(self.personalGroup)
         self.expandLayout.addWidget(self.updateSoftwareGroup)
         self.expandLayout.addWidget(self.aboutGroup)
@@ -309,6 +359,14 @@ class SettingInterface(ScrollArea):
 
         # browser
         self.browserCard.clicked.connect(self._installBrowser)
+
+        # image gen
+        self.imageGenBaseUrlInput.textChanged.connect(
+            lambda v: cfg.set(cfg.imageGenBaseUrl, v))
+        self.imageGenApiKeyInput.textChanged.connect(
+            lambda v: cfg.set(cfg.imageGenApiKey, v))
+        self.imageGenModelInput.textChanged.connect(
+            lambda v: cfg.set(cfg.imageGenModel, v))
 
         # personalization
         cfg.themeChanged.connect(setTheme)

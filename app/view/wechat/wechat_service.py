@@ -67,15 +67,19 @@ def get_next_day_templates_dir(current_dir: Path) -> Path:
 
 def load_templates(templates_dir: Path,
                    category: str = "校招") -> list[tuple[str, dict]]:
-    """按文件名排序加载 category 子文件夹下的 1.json, 2.json, ... 模板"""
+    """按文件名数字自然序排序加载 category 子文件夹下的 1.json, 2.json, ... 模板"""
     cat_dir = templates_dir / category
     if not cat_dir.exists():
         return []
+    json_files = [f for f in cat_dir.glob("*.json") if f.stem.isdigit()]
+    json_files.sort(key=lambda f: int(f.stem))
     templates = []
-    for f in sorted(cat_dir.glob("*.json")):
-        if f.stem.isdigit():
+    for f in json_files:
+        try:
             data = json.loads(f.read_text(encoding="utf-8"))
             templates.append((f.name, data))
+        except (json.JSONDecodeError, ValueError, OSError):
+            pass
     return templates
 
 
@@ -105,14 +109,15 @@ def load_date_range_templates(
         cat_dir = templates_root / folder_name / category
         day_templates = []
         if cat_dir.exists():
-            for f in sorted(cat_dir.glob("*.json")):
-                if f.stem.isdigit():
-                    try:
-                        data = json.loads(
-                            f.read_text(encoding="utf-8"))
-                        day_templates.append((f.name, data))
-                    except (json.JSONDecodeError, ValueError):
-                        pass
+            json_files = [f for f in cat_dir.glob("*.json") if f.stem.isdigit()]
+            json_files.sort(key=lambda f: int(f.stem))
+            for f in json_files:
+                try:
+                    data = json.loads(
+                        f.read_text(encoding="utf-8"))
+                    day_templates.append((f.name, data))
+                except (json.JSONDecodeError, ValueError, OSError):
+                    pass
         if day_templates:
             results.append((current, day_templates))
         current += timedelta(days=1)
@@ -136,6 +141,7 @@ TEMPLATE_SKELETON = {
     "{{岗位职责内容}}": "",
     "{{岗位需求内容}}": "",
     "{{小程序链接}}": "",
+    "{{届数}}": "",
 }
 
 

@@ -6,10 +6,14 @@ from PySide6.QtWidgets import QApplication
 from qfluentwidgets import NavigationItemPosition, FluentWindow, SplashScreen
 from qfluentwidgets import FluentIcon as FIF
 
+from .image_gen import ImageGenInterface
 from .setting_interface import SettingInterface
 from .xhs import XhsInterface
+from .xhs_download import XhsDownloadInterface
 from .wechat import WechatInterface
+from .wechat2 import Wechat2Interface
 from .video_cut_interface import VideoCutInterface
+from .job_crawler import JobCrawlerInterface
 from ..common.config import cfg
 from ..common.icon import Icon
 from ..common.signal_bus import signalBus
@@ -24,8 +28,12 @@ class MainWindow(FluentWindow):
 
         # TODO: create sub interface
         self.xhsInterface = XhsInterface(self)
+        self.xhsDownloadInterface = XhsDownloadInterface(self)
         self.wechatInterface = WechatInterface(self)
+        self.wechat2Interface = Wechat2Interface(self)
+        self.imageGenInterface = ImageGenInterface(self)
         self.videoCutInterface = VideoCutInterface(self)
+        self.jobCrawlerInterface = JobCrawlerInterface(self)
         self.settingInterface = SettingInterface(self)
 
         self.connectSignalToSlot()
@@ -40,8 +48,12 @@ class MainWindow(FluentWindow):
         # self.navigationInterface.setAcrylicEnabled(True)
 
         self.addSubInterface(self.xhsInterface, FIF.EDIT, self.tr('小红书'))
+        self.addSubInterface(self.imageGenInterface, FIF.PHOTO, self.tr('生图'))
+        self.addSubInterface(self.xhsDownloadInterface, FIF.DOWNLOAD, self.tr('下载'))
         self.addSubInterface(self.wechatInterface, FIF.CHAT, self.tr('公众号'))
+        self.addSubInterface(self.wechat2Interface, FIF.CHAT, self.tr('公众号2'))
         self.addSubInterface(self.videoCutInterface, FIF.MOVIE, self.tr('智能剪辑'))
+        self.addSubInterface(self.jobCrawlerInterface, FIF.DOCUMENT, self.tr('招聘采集'))
 
         # add custom widget to bottom
         self.addSubInterface(

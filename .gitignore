@@ -10,7 +10,6 @@ wheels/
 .venv
 
 # IDEs and Agent settings
-.agents/
 .antigravitycli/
 .claude/
 

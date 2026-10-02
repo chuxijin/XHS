@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>横滑组件</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="popup">
+    <header class="header">
+      <h1>公众号横滑组件</h1>
+      <span id="status">就绪</span>
+    </header>
+
+    <section class="field">
+      <label>图片比例</label>
+      <div class="radios">
+        <label><input type="radio" name="ratio" value="1:1">1:1</label>
+        <label><input type="radio" name="ratio" value="3:2">3:2</label>
+        <label><input type="radio" name="ratio" value="3:4" checked>3:4</label>
+        <label><input type="radio" name="ratio" value="16:9">16:9</label>
+      </div>
+    </section>
+
+    <section class="field">
+      <label>滑动类型</label>
+      <div class="radios">
+        <label><input type="radio" name="slideType" value="adsorb" checked>吸附滑动</label>
+        <label><input type="radio" name="slideType" value="free">自由滑动</label>
+      </div>
+    </section>
+
+    <section class="grid">
+      <label>
+        宽度 %
+        <input id="widthInput" type="number" min="40" max="100" value="70">
+      </label>
+      <label>
+        圆角 px
+        <input id="radiusInput" type="number" min="0" max="80" value="32">
+      </label>
+      <label>
+        内边距 px
+        <input id="paddingInput" type="number" min="0" max="160" value="60">
+      </label>
+    </section>
+
+    <section class="field">
+      <label for="captionInput">提示文案</label>
+      <textarea id="captionInput">←左右滑动查看更多→
+Slide for more photos</textarea>
+    </section>
+
+    <section class="field">
+      <label for="imageInput">图片地址，每行一个</label>
+      <textarea id="imageInput" class="images" placeholder="https://mmbiz.qpic.cn/..."></textarea>
+    </section>
+
+    <section class="preview-wrap">
+      <div id="preview"></div>
+    </section>
+
+    <footer class="actions">
+      <button id="copyBtn" type="button">复制富文本</button>
+      <button id="insertBtn" type="button" class="primary">复制后去粘贴</button>
+    </footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>

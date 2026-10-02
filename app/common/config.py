@@ -47,6 +47,11 @@ class Config(QConfig):
     # software update
     checkUpdateAtStartUp = ConfigItem("Update", "CheckUpdateAtStartUp", True, BoolValidator())
 
+    # image generation
+    imageGenBaseUrl = ConfigItem("ImageGen", "BaseUrl", "")
+    imageGenApiKey = ConfigItem("ImageGen", "ApiKey", "")
+    imageGenModel = ConfigItem("ImageGen", "Model", "gpt-image-2")
+
 
 cfg = Config()
 cfg.themeMode.value = Theme.AUTO

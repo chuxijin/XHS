@@ -1,0 +1,559 @@
+{
+  "昂跑": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "昂跑体育用品（上海）有限公司",
+        "short_name": "昂跑",
+        "type": "外商独资",
+        "site_count": "1"
+      },
+      {
+        "id": "2",
+        "full_name": "On Running",
+        "short_name": "昂跑",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "On Running",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/13208/job-list"
+      },
+      {
+        "name": "昂跑体育用品（上海）有限公司",
+        "task": "",
+        "url": "https://mp.weixin.qq.com/s/vlSAEo38Saz3WiuQ_SfSTg"
+      }
+    ]
+  },
+  "珀莱雅": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "珀莱雅化妆品股份有限公司",
+        "short_name": "珀莱雅",
+        "type": "上市",
+        "site_count": "3"
+      }
+    ],
+    "sites": [
+      {
+        "name": "珀莱雅",
+        "task": "feishu_spider_task",
+        "url": "https://jobs.proya.com/jobs/position/list"
+      },
+      {
+        "name": "珀莱雅",
+        "task": "feishu_spider_task",
+        "url": "https://jobs.proya.com/campus/position/list"
+      },
+      {
+        "name": "珀莱雅",
+        "task": "moka_spider_task",
+        "url": "https://campus.proya.com/campus-recruitment/proya/41776/"
+      }
+    ]
+  },
+  "亿滋": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "亿滋（中国）有限公司",
+        "short_name": "亿滋中国",
+        "type": "外商独资",
+        "site_count": "1"
+      },
+      {
+        "id": "2",
+        "full_name": "亿滋食品企业管理（上海）有限公司",
+        "short_name": "亿滋",
+        "type": "外商独资",
+        "site_count": "1"
+      },
+      {
+        "id": "3",
+        "full_name": "Mondelez International, Inc.",
+        "short_name": "亿滋Mondelez",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "亿滋（中国）有限公司",
+        "task": "mo_seeker_spider_task",
+        "url": "https://www.moseeker.com/position/index/pid/3240756"
+      },
+      {
+        "name": "亿滋",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=4c2ccec2-c249-4e5d-b60f-104e613777f6&ResumeID=6d79847e-e22d-45f5-94c3-63a7d865cb3a&SeqID=0&prd=campus.51job.com&prp=&cd=xyz.51job.com&cp=&ruid=&backurl=&auid=&uuid=&partner="
+      },
+      {
+        "name": "Mondelez International, Inc.",
+        "task": "workday_spider_task",
+        "url": "https://www.mondelezinternational.com/careers/jobs/"
+      }
+    ]
+  },
+  "阿迪达斯": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "阿迪达斯（中国）有限公司",
+        "short_name": "阿迪达斯",
+        "type": "外商独资",
+        "site_count": "3"
+      },
+      {
+        "id": "2",
+        "full_name": "阿迪达斯体育（中国）有限公司",
+        "short_name": "ADIDAS",
+        "type": "外商独资",
+        "site_count": "3"
+      },
+      {
+        "id": "3",
+        "full_name": "adidas AG",
+        "short_name": "阿迪达斯adidas",
+        "type": "境外企业",
+        "site_count": "2"
+      }
+    ],
+    "sites": [
+      {
+        "name": "阿迪达斯体育（中国）有限公司",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/social-recruitment/adidas/140456#/jobs"
+      },
+      {
+        "name": "阿迪达斯体育（中国）有限公司",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=8dc04f13-660f-480d-8af4-6c15422eb21a&ResumeID=28a39822-21b8-43a1-a53f-8428efed027d&SeqID=0&prd=campus.51job.com&prp=&cd=xyz.51job.com&cp=&ruid=&backurl=&auid=&uuid=&partner="
+      },
+      {
+        "name": "阿迪达斯（中国）有限公司",
+        "task": "five_one_job_spider_task",
+        "url": "https://jobs.adidas-group.com/"
+      },
+      {
+        "name": "阿迪达斯（中国）有限公司",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/adidas/140457#/jobs"
+      },
+      {
+        "name": "adidas AG",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/13515/job-list"
+      },
+      {
+        "name": "adidas AG",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/13510/job-list"
+      },
+      {
+        "name": "阿迪达斯",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=2993ec98-d484-498e-84a2-48e38637ef7a&ResumeID=ea1ffc24-ee69-4010-be1e-31f0ce03bfce&SeqID=0&prd=yjs_web&prp=https%3a%2f%2fq.yingjiesheng.com%2fpc%2fpersonal&cd=yjs_web&cp=https%3a%2f%2fq.yingjiesheng.com%2fpc%2fpersonal&ruid=&backurl=&auid=&uuid=240232637d33e374145de3f0ac501697&partner=wspcsucceedb1"
+      },
+      {
+        "name": "adidas",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=74a765df-bf50-4078-af9a-421a652c4f8c&ResumeID=0252082b-a16f-4aa7-9a85-0f3a4e272fcc&SeqID=0&prd=campus.51job.com&prp=&cd=xyz.51job.com&cp=&ruid=&backurl=&auid=&uuid=&partner="
+      }
+    ]
+  },
+  "达能": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "运达能源科技集团股份有限公司",
+        "short_name": "运达能源",
+        "type": "央企，上市，国企",
+        "site_count": "3"
+      },
+      {
+        "id": "2",
+        "full_name": "达能亚太（上海）管理有限公司",
+        "short_name": "达能亚太",
+        "type": "外商独资",
+        "site_count": "5"
+      },
+      {
+        "id": "3",
+        "full_name": "达能（中国）食品饮料有限公司",
+        "short_name": "达能中国饮料",
+        "type": "中外合资",
+        "site_count": "5"
+      },
+      {
+        "id": "4",
+        "full_name": "Danone S.A.",
+        "short_name": "达能Danone",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "5",
+        "full_name": "达能亚太(上海)管理有限公司",
+        "short_name": "达能亚太(上",
+        "type": "民企",
+        "site_count": "0"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Danone S.A.",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/13907/job-list"
+      },
+      {
+        "name": "达能（中国）食品饮料有限公司",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/danone/170511?locale=zh-CN#/jobs"
+      },
+      {
+        "name": "达能（中国）食品饮料有限公司",
+        "task": "",
+        "url": "https://careers.danone.com.cn/zh_CN/campus/Error"
+      },
+      {
+        "name": "达能（中国）食品饮料有限公司",
+        "task": "zhao_pin_spider_task",
+        "url": "https://xiaoyuan.zhaopin.com/company/KA0146390071P90000004000"
+      },
+      {
+        "name": "达能（中国）食品饮料有限公司",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=7d39860c-7cec-4198-b95b-267e1a193c05&ResumeID=f5fa3585-7643-4974-9059-a3ff77f3a19f&SeqID=0&prd=yjs_web&prp=https://www.yingjiesheng.com&cd=yjs_web&cp=https://q.yingjiesheng.com/pc/personal&ruid=&backurl=&auid=&uuid=a786650450984ca66dac9475f5b1c670&partner="
+      },
+      {
+        "name": "达能亚太(上海)管理有限公司",
+        "task": "zhao_pin_spider_task",
+        "url": "https://xiaoyuan.zhaopin.com/company/KA0146390071P90000007000"
+      },
+      {
+        "name": "达能亚太(上海)管理有限公司",
+        "task": "zhao_pin_spider_task",
+        "url": "https://xiaoyuan.zhaopin.com/company/KA0146390071P90000006000"
+      },
+      {
+        "name": "达能亚太(上海)管理有限公司",
+        "task": "zhao_pin_spider_task",
+        "url": "https://xiaoyuan.zhaopin.com/company/KA0146390071P90000005000"
+      },
+      {
+        "name": "达能亚太（上海）管理有限公司",
+        "task": "",
+        "url": "https://careers.danone.com/en-global/jobs.html?fulltext=*"
+      },
+      {
+        "name": "达能亚太(上海)管理有限公司",
+        "task": "zhao_pin_spider_task",
+        "url": "https://xiaoyuan.zhaopin.com/company/KA0146390071P90000003000"
+      },
+      {
+        "name": "运达能源科技集团股份有限公司",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=85d1930c-52de-4ef2-b5f7-120f75f41495&ResumeID=4e79617d-e1e2-488b-a2e5-8922b30486ec&SeqID=0&prd=yjs_web&prp=https://q.yingjiesheng.com/pc/personal&cd=yjs_web&cp=https://q.yingjiesheng.com/pc/personal&ruid=&backurl=&auid=&uuid=328983d41e5f753c2d5ab6d0c725c4de&partner=wspcsucceedb1"
+      },
+      {
+        "name": "运达能源科技集团股份有限公司",
+        "task": "guopin_v3_spider_task",
+        "url": "https://www.iguopin.com/company?id=167026351193199376"
+      }
+    ]
+  },
+  "百盛": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "佛山汇百盛激光科技有限公司",
+        "short_name": "汇百盛激光",
+        "type": "民企",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "佛山汇百盛激光科技有限公司",
+        "task": "guopin_v3_spider_task",
+        "url": "https://www.iguopin.com/company?id=217600025130173927"
+      }
+    ]
+  },
+  "赫力昂": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "赫力昂（中国）有限公司",
+        "short_name": "赫力昂",
+        "type": "外商独资",
+        "site_count": "2"
+      }
+    ],
+    "sites": [
+      {
+        "name": "赫力昂（中国）有限公司",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=2ed4343a-6335-4173-8c44-7121e587d9d8&ResumeID=8b49f977-9bc2-4c59-878d-89a5884893b2&SeqID=0&prd=yjs_web&prp=&cd=yjs_web&cp=home%uff5csearch%uff5cjobsearchlb&ruid=&backurl=&auid=&uuid=f72aa1d07b04e88d99a7e0fd42a65eb7&partner="
+      },
+      {
+        "name": "赫力昂（中国）有限公司",
+        "task": "",
+        "url": "https://www.haleon.com/careers"
+      }
+    ]
+  },
+  "阶跃星辰": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "上海阶跃星辰智能科技有限公司",
+        "short_name": "阶跃星辰",
+        "type": "民企",
+        "site_count": "5"
+      }
+    ],
+    "sites": [
+      {
+        "name": "上海阶跃星辰智能科技有限公司",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/social-recruitment/step/94904#/jobs"
+      },
+      {
+        "name": "上海阶跃星辰智能科技有限公司",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/recommendation-recruitment/step/94906#/jobs"
+      },
+      {
+        "name": "阶跃星辰（二）",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/step/94905#/jobs"
+      },
+      {
+        "name": "阶跃星辰（内推）",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/recommendation-apply/step/94906#/jobs"
+      },
+      {
+        "name": "阶跃星辰",
+        "task": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/step/141903#/jobs"
+      }
+    ]
+  },
+  "保乐力加": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "Pernod Ricard SA",
+        "short_name": "保乐力加Pernod Ricard",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "2",
+        "full_name": "保乐力加（中国）贸易有限公司",
+        "short_name": "保乐力加（中国）pernod-ricard",
+        "type": "外商独资",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Pernod Ricard SA",
+        "task": "workday_spider_task",
+        "url": "https://pernodricard.wd3.myworkdayjobs.com/en-US/pernod-ricard"
+      },
+      {
+        "name": "保乐力加（中国）贸易有限公司",
+        "task": "",
+        "url": "https://www.pernod-ricard-china.com/recruitment.html"
+      }
+    ]
+  },
+  "英富曼": {
+    "companies": [],
+    "sites": []
+  },
+  "优尼博览": {
+    "companies": [],
+    "sites": []
+  },
+  "K2 Asia": {
+    "companies": [],
+    "sites": []
+  },
+  "Attila": {
+    "companies": [],
+    "sites": []
+  },
+  "不凡帝范梅勒": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "不凡帝范梅勒糖果（中国）有限公司",
+        "short_name": "阿尔卑斯",
+        "type": "外商独资",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "不凡帝范梅勒",
+        "task": "five_one_job_spider_task",
+        "url": "https://xyz.51job.com/External/MyResume/FillInResume.aspx?CtmID=fb49b332-ddf0-4ee0-9438-b75ad9d2f548&ResumeID=2e6619b6-4fe8-4ffd-b4e5-f099976864c7&SeqID=0&prd=campus.51job.com&prp=&cd=xyz.51job.com&cp=&ruid=&backurl=&auid=&uuid=&partner="
+      }
+    ]
+  },
+  "费列罗": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "Ferrero S.p.A.",
+        "short_name": "费列罗 Ferrero",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "2",
+        "full_name": "Ferrero Group",
+        "short_name": "费列罗 / Ferrero",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Ferrero Group",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/7299/job-list"
+      },
+      {
+        "name": "Ferrero S.p.A.",
+        "task": "ferre_ro_spider_task",
+        "url": "https://www.ferrerocareers.com/zh/zh-hans/jobs"
+      }
+    ]
+  },
+  "康泰纳仕": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "Condé Nast",
+        "short_name": "康泰纳仕Condé",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Condé Nast",
+        "task": "workday_spider_task",
+        "url": "https://condenast.wd5.myworkdayjobs.com/en-US/CondeCareers"
+      }
+    ]
+  },
+  "芬美意": {
+    "companies": [],
+    "sites": []
+  },
+  "奇华顿": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "Givaudan S.A.",
+        "short_name": "奇华顿Givaudan",
+        "type": "外商独资",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Givaudan S.A.",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/13090/job-list"
+      }
+    ]
+  },
+  "IFF": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "International Flavors & Fragrances Inc.",
+        "short_name": "国际香料IFF",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "2",
+        "full_name": "Clifford Chance LLP",
+        "short_name": "高伟绅CliffordChance",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "3",
+        "full_name": "Hillsborough County Sheriff's Office",
+        "short_name": "希尔斯伯勒县警署HCSO",
+        "type": "境外企业",
+        "site_count": "1"
+      },
+      {
+        "id": "4",
+        "full_name": "Houghton Mifflin Harcourt Publishing Company",
+        "short_name": "霍顿米夫林HMH",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Clifford Chance LLP",
+        "task": "smart_spider_task",
+        "url": "https://careers.smartrecruiters.com/CliffordChance"
+      },
+      {
+        "name": "Hillsborough County Sheriff's Office",
+        "task": "workday_spider_task",
+        "url": "https://hcso.wd1.myworkdayjobs.com/en-US/External"
+      },
+      {
+        "name": "Houghton Mifflin Harcourt Publishing Company",
+        "task": "workday_spider_task",
+        "url": "https://hmhw.wd12.myworkdayjobs.com/en-US/hmh_careers"
+      },
+      {
+        "name": "International Flavors & Fragrances Inc.",
+        "task": "workday_spider_task",
+        "url": "https://iff.wd5.myworkdayjobs.com/en-US/IFF_Careers"
+      }
+    ]
+  },
+  "Wiley": {
+    "companies": [],
+    "sites": []
+  },
+  "施普林格": {
+    "companies": [
+      {
+        "id": "1",
+        "full_name": "Springer Nature AG & Co. KGaA",
+        "short_name": "Springer Nature / 施普林格·自然",
+        "type": "境外企业",
+        "site_count": "1"
+      }
+    ],
+    "sites": [
+      {
+        "name": "Springer Nature AG & Co. KGaA",
+        "task": "a_jing_spider_task",
+        "url": "https://www.ajinga.com/recruiting/company/6234/job-list"
+      }
+    ]
+  }
+}

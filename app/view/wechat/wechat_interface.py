@@ -29,12 +29,13 @@ from .wechat_service import (get_accounts, account_exists, load_templates,
                               PROMPT_TEXT,
                               WechatLoginThread)
 from .publish_scheme1 import WechatPublishThread as Scheme1Thread
-from .publish_scheme2 import Scheme2Thread
+from .publish_scheme2 import Scheme2Thread, Scheme3Thread
 
 # 发布方案注册表：显示名 → Thread 类
 PUBLISH_SCHEMES = {
     "方案1 - 草稿模板": Scheme1Thread,
     "方案2 - 周日汇总": Scheme2Thread,
+    "方案3 - 周六汇总": Scheme3Thread,
 }
 
 
@@ -600,11 +601,11 @@ class WechatInterface(ScrollArea):
 
     def _onSchemeChanged(self, scheme_name: str):
         """方案切换时显示/隐藏对应的 UI 控件"""
-        is_scheme2 = "周日汇总" in scheme_name
+        is_summary = "汇总" in scheme_name
         # 发布设置整个分组（模板路径 + 模板管理）
-        self.publishGroup.setVisible(not is_scheme2)
+        self.publishGroup.setVisible(not is_summary)
         # 日期范围卡片
-        self.dateRangeCard.setVisible(is_scheme2)
+        self.dateRangeCard.setVisible(is_summary)
         # 重新计算分组高度
         self.publishTargetGroup.adjustSize()
         self.scrollWidget.adjustSize()
@@ -763,8 +764,8 @@ class WechatInterface(ScrollArea):
 
         scheme_name = self.schemeCombo.currentText()
 
-        # ---- 方案2：周日汇总 ----
-        if "周日汇总" in scheme_name:
+        # ---- 汇总方案（周六汇总 / 周日汇总） ----
+        if "汇总" in scheme_name:
             start_qdate = self.startDatePicker.getDate()
             end_qdate = self.endDatePicker.getDate()
             if not start_qdate or not start_qdate.isValid() \
@@ -783,7 +784,7 @@ class WechatInterface(ScrollArea):
                                 duration=2000, parent=self)
                 return
 
-            self._startMultiPublish(accounts, 'scheme2',
+            self._startMultiPublish(accounts, 'summary',
                                     start_date=start_d, end_date=end_d)
             return
 
@@ -794,11 +795,12 @@ class WechatInterface(ScrollArea):
             InfoBar.warning(self.tr("提示"), self.tr("请先选择模板目录"),
                             duration=2000, parent=self)
             return
-        recruit = load_templates(tdir, "校招")
-        intern_ = load_templates(tdir, "实习")
-        if not recruit or not intern_:
+        total_templates = sum(
+            len(load_templates(tdir, cat)) for cat in TEMPLATE_CATEGORIES
+        )
+        if total_templates == 0:
             InfoBar.warning(self.tr("提示"),
-                            self.tr("校招和实习都需要有模板"),
+                            self.tr("未找到任何可用模板（校招/实习/社招），请放入模板文件"),
                             duration=3000, parent=self)
             return
         self._startMultiPublish(accounts, 'scheme1')
@@ -826,13 +828,13 @@ class WechatInterface(ScrollArea):
                 templates_dir_name = tdir.name
 
         for account in accounts:
-            if scheme == 'scheme2':
-                thread = Scheme2Thread(
+            ThreadClass = PUBLISH_SCHEMES[self.schemeCombo.currentText()]
+            if scheme == 'summary':
+                thread = ThreadClass(
                     account,
                     kwargs['start_date'], kwargs['end_date'],
                     parent=self, headless=headless)
             else:
-                ThreadClass = PUBLISH_SCHEMES[self.schemeCombo.currentText()]
                 # 构建该账号对应的模板目录
                 account_tdir = ACCOUNTS_DIR / account / "templates" / templates_dir_name
                 thread = ThreadClass(

@@ -1,0 +1,1923 @@
+{
+  "上海滕振新能源科技有限公司": {
+    "name": "上海滕振新能源科技有限公司",
+    "existing_alias": "上海滕振新能源科技",
+    "final_alias": "上海滕振新能源科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞健力口腔医院": {
+    "name": "东莞健力口腔医院",
+    "existing_alias": "东莞健力口腔医院",
+    "final_alias": "东莞健力口腔医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞光明眼科医院": {
+    "name": "东莞光明眼科医院",
+    "existing_alias": "东莞光明眼科医院",
+    "final_alias": "东莞光明眼科医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞台心医院": {
+    "name": "东莞台心医院",
+    "existing_alias": "东莞台心医院",
+    "final_alias": "东莞台心医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞均益精密五金制品有限公司": {
+    "name": "东莞均益精密五金制品有限公司",
+    "existing_alias": "东莞均益精密五金制品",
+    "final_alias": "东莞均益精密五金制品",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞实业投资控股集团有限公司": {
+    "name": "东莞实业投资控股集团有限公司",
+    "existing_alias": "东莞实业投资控股",
+    "final_alias": "东莞实业投资控股",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市东坑医院": {
+    "name": "东莞市东坑医院",
+    "existing_alias": "东莞市东坑医院",
+    "final_alias": "东莞市东坑医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市东城实业集团有限公司": {
+    "name": "东莞市东城实业集团有限公司",
+    "existing_alias": "东莞市东城实业",
+    "final_alias": "东莞市东城实业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "建筑/房地产",
+    "target_industry_code": "9",
+    "industry_reason": "城市建设与产业园区开发",
+    "needs_update": true
+  },
+  "东莞市东部中心医院(暨南大学附属第六医院)": {
+    "name": "东莞市东部中心医院(暨南大学附属第六医院)",
+    "existing_alias": "",
+    "final_alias": "东莞市东部中心医院(暨南大学附属第六医院)",
+    "alias_action": "空缺时初次补充简称",
+    "existing_type": [],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "补充医院类型",
+    "existing_industry": [],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市交易咨询服务有限公司": {
+    "name": "东莞市交易咨询服务有限公司",
+    "existing_alias": "东莞市交易咨询服务",
+    "final_alias": "东莞市交易咨询服务",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "综合",
+    "target_industry_code": "13",
+    "industry_reason": "多元化综合业务",
+    "needs_update": false
+  },
+  "东莞市交通投资控股集团有限公司": {
+    "name": "东莞市交通投资控股集团有限公司",
+    "existing_alias": "东莞市交通投资控股",
+    "final_alias": "东莞市交通投资控股",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市人民医院": {
+    "name": "东莞市人民医院",
+    "existing_alias": "东莞市人民医院",
+    "final_alias": "东莞市人民医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞市佳超五金科技有限公司": {
+    "name": "东莞市佳超五金科技有限公司",
+    "existing_alias": "佳超五金科技",
+    "final_alias": "佳超五金科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "五金机械精密科技",
+    "needs_update": false
+  },
+  "东莞市凯格精机股份有限公司": {
+    "name": "东莞市凯格精机股份有限公司",
+    "existing_alias": "东莞市凯格精机",
+    "final_alias": "东莞市凯格精机",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市卓茂仪器有限公司": {
+    "name": "东莞市卓茂仪器有限公司",
+    "existing_alias": "东莞市卓茂仪器",
+    "final_alias": "东莞市卓茂仪器",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市厚街医院（东莞市应急医院）": {
+    "name": "东莞市厚街医院（东莞市应急医院）",
+    "existing_alias": "东莞市厚街医院（东莞市应急医院）",
+    "final_alias": "东莞市厚街医院（东莞市应急医院）",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市大朗医院": {
+    "name": "东莞市大朗医院",
+    "existing_alias": "东莞市大朗医院",
+    "final_alias": "东莞市大朗医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市妇幼保健院": {
+    "name": "东莞市妇幼保健院",
+    "existing_alias": "东莞市妇幼保健院",
+    "final_alias": "东莞市妇幼保健院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞市尧东机械制造有限公司": {
+    "name": "东莞市尧东机械制造有限公司",
+    "existing_alias": "东莞市尧东机械制造",
+    "final_alias": "东莞市尧东机械制造",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市德声实业有限公司": {
+    "name": "东莞市德声实业有限公司",
+    "existing_alias": "东莞市德声实业",
+    "final_alias": "东莞市德声实业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "消费电子",
+    "target_industry_code": "33",
+    "industry_reason": "电声元器件及耳机喇叭",
+    "needs_update": true
+  },
+  "东莞市志橙半导体材料有限公司": {
+    "name": "东莞市志橙半导体材料有限公司",
+    "existing_alias": "志橙半导体",
+    "final_alias": "志橙半导体",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "6"
+    ],
+    "target_industry_name": "硬件/半导体/芯片",
+    "target_industry_code": "6",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市斯乐克电子科技有限公司": {
+    "name": "东莞市斯乐克电子科技有限公司",
+    "existing_alias": "东莞市斯乐克电子科技",
+    "final_alias": "东莞市斯乐克电子科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "6"
+    ],
+    "target_industry_name": "硬件/半导体/芯片",
+    "target_industry_code": "6",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市时运佳实业投资有限公司": {
+    "name": "东莞市时运佳实业投资有限公司",
+    "existing_alias": "时运佳实业",
+    "final_alias": "时运佳实业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "精密模具及塑胶五金制造",
+    "needs_update": true
+  },
+  "东莞市朗晟材料科技有限公司": {
+    "name": "东莞市朗晟材料科技有限公司",
+    "existing_alias": "东莞市朗晟材料科技",
+    "final_alias": "东莞市朗晟材料科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市水乡中心医院": {
+    "name": "东莞市水乡中心医院",
+    "existing_alias": "东莞市水乡中心医院",
+    "final_alias": "东莞市水乡中心医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市清溪医院": {
+    "name": "东莞市清溪医院",
+    "existing_alias": "东莞市清溪医院",
+    "final_alias": "东莞市清溪医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市滨海湾中心医院（东莞市太平人民医院、东莞市第五人民医院）": {
+    "name": "东莞市滨海湾中心医院（东莞市太平人民医院、东莞市第五人民医院）",
+    "existing_alias": "东莞市滨海湾中心医院（东莞市太平人民医院、东莞市第五人民医院）",
+    "final_alias": "东莞市滨海湾中心医院（东莞市太平人民医院、东莞市第五人民医院）",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市盛元新材料科技有限公司": {
+    "name": "东莞市盛元新材料科技有限公司",
+    "existing_alias": "盛元新材料",
+    "final_alias": "盛元新材料",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市立敏达电子科技有限公司": {
+    "name": "东莞市立敏达电子科技有限公司",
+    "existing_alias": "东莞市立敏达电子科技",
+    "final_alias": "东莞市立敏达电子科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "6"
+    ],
+    "target_industry_name": "硬件/半导体/芯片",
+    "target_industry_code": "6",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞市第七人民医院": {
+    "name": "东莞市第七人民医院",
+    "existing_alias": "东莞市第七人民医院",
+    "final_alias": "东莞市第七人民医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞市第九人民医院": {
+    "name": "东莞市第九人民医院",
+    "existing_alias": "东莞市第九人民医院",
+    "final_alias": "东莞市第九人民医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "东莞市第八人民医院（东莞市儿童医院）": {
+    "name": "东莞市第八人民医院（东莞市儿童医院）",
+    "existing_alias": "东莞市第八人民医院（东莞市儿童医院）",
+    "final_alias": "东莞市第八人民医院（东莞市儿童医院）",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "东莞市达锂电子有限公司": {
+    "name": "东莞市达锂电子有限公司",
+    "existing_alias": "东莞市达锂电子",
+    "final_alias": "东莞市达锂电子",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "消费电子",
+    "target_industry_code": "33",
+    "industry_reason": "锂电池管理系统BMS与消费电子",
+    "needs_update": true
+  },
+  "东莞百宏实业有限公司": {
+    "name": "东莞百宏实业有限公司",
+    "existing_alias": "百宏实业",
+    "final_alias": "百宏实业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞美宝环保设备有限公司": {
+    "name": "东莞美宝环保设备有限公司",
+    "existing_alias": "美宝环保设备",
+    "final_alias": "美宝环保设备",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "15"
+    ],
+    "target_industry_name": "环保",
+    "target_industry_code": "15",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞联茂电子科技有限公司": {
+    "name": "东莞联茂电子科技有限公司",
+    "existing_alias": "东莞联茂电子科技",
+    "final_alias": "东莞联茂电子科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "2"
+    ],
+    "target_type": [
+      "2"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "6"
+    ],
+    "target_industry_name": "硬件/半导体/芯片",
+    "target_industry_code": "6",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞衍创文化发展有限公司": {
+    "name": "东莞衍创文化发展有限公司",
+    "existing_alias": "东莞衍创文化发展",
+    "final_alias": "东莞衍创文化发展",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "广告传媒/文化体育",
+    "target_industry_code": "3",
+    "industry_reason": "文化创意与动漫潮玩产业",
+    "needs_update": true
+  },
+  "东莞触点智能装备有限公司": {
+    "name": "东莞触点智能装备有限公司",
+    "existing_alias": "东莞触点智能装备",
+    "final_alias": "东莞触点智能装备",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "东莞铭普光磁股份有限公司": {
+    "name": "东莞铭普光磁股份有限公司",
+    "existing_alias": "东莞铭普光磁",
+    "final_alias": "东莞铭普光磁",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "中信投资管理（上海）有限公司": {
+    "name": "中信投资管理（上海）有限公司",
+    "existing_alias": "中信投资管理",
+    "final_alias": "中信投资管理",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "2"
+    ],
+    "target_type": [
+      "2"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "中建（天津）轨道交通投资发展有限公司": {
+    "name": "中建（天津）轨道交通投资发展有限公司",
+    "existing_alias": "中建（天津）轨道交通投资发展",
+    "final_alias": "中建（天津）轨道交通投资发展",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "8"
+    ],
+    "target_industry_name": "物流/供应链/交通运输",
+    "target_industry_code": "8",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "中联品检（东莞）检验技术有限公司": {
+    "name": "中联品检（东莞）检验技术有限公司",
+    "existing_alias": "中联品检检验技术",
+    "final_alias": "中联品检检验技术",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "专业服务",
+    "target_industry_code": "2",
+    "industry_reason": "质检技术与专业认证服务",
+    "needs_update": true
+  },
+  "中铁二十局集团第四工程有限公司": {
+    "name": "中铁二十局集团第四工程有限公司",
+    "existing_alias": "中铁二十局第四工程",
+    "final_alias": "中铁二十局第四工程",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "9"
+    ],
+    "target_industry_name": "建筑/房地产",
+    "target_industry_code": "9",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "北京和利时系统工程有限公司": {
+    "name": "北京和利时系统工程有限公司",
+    "existing_alias": "和利时 HollySys",
+    "final_alias": "和利时 HollySys",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "22"
+    ],
+    "target_industry_name": "科研技术",
+    "target_industry_code": "22",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "北京国铁华晨通信科技有限公司": {
+    "name": "北京国铁华晨通信科技有限公司",
+    "existing_alias": "北京国铁华晨通信科技",
+    "final_alias": "北京国铁华晨通信科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "0"
+    ],
+    "target_industry_name": "IT/互联网/游戏",
+    "target_industry_code": "0",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "国家超级计算深圳中心（深圳云计算中心）": {
+    "name": "国家超级计算深圳中心（深圳云计算中心）",
+    "existing_alias": "国家超级计算深圳中心（深圳云计算中心）",
+    "final_alias": "国家超级计算深圳中心（深圳云计算中心）",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "云计算",
+    "target_industry_code": "29",
+    "industry_reason": "算力与云计算设施",
+    "needs_update": true
+  },
+  "国科科仪控股有限公司": {
+    "name": "国科科仪控股有限公司",
+    "existing_alias": "国科科仪控股",
+    "final_alias": "国科科仪控股",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "国网数字科技控股有限公司": {
+    "name": "国网数字科技控股有限公司",
+    "existing_alias": "国网数字科技控股",
+    "final_alias": "国网数字科技控股",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "IT/互联网/游戏",
+    "target_industry_code": "0",
+    "industry_reason": "数智科技与软件信息",
+    "needs_update": true
+  },
+  "宁夏回族自治区消防救援总队训练和战勤保障支队": {
+    "name": "宁夏回族自治区消防救援总队训练和战勤保障支队",
+    "existing_alias": "宁夏回族自治区消防救援总队训练和战勤保障支队",
+    "final_alias": "宁夏回族自治区消防救援总队训练和战勤保障支队",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "9"
+    ],
+    "target_type": [
+      "9"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "政府机关",
+    "target_industry_code": "12",
+    "industry_reason": "国家综合性消防救援队伍",
+    "needs_update": true
+  },
+  "宝山钢铁股份有限公司": {
+    "name": "宝山钢铁股份有限公司",
+    "existing_alias": "钢铁股份",
+    "final_alias": "钢铁股份",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "平安银行股份有限公司东莞分行": {
+    "name": "平安银行股份有限公司东莞分行",
+    "existing_alias": "平安银行东莞分行",
+    "final_alias": "平安银行东莞分行",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "8"
+    ],
+    "target_type": [
+      "8"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东三维智能装备有限公司": {
+    "name": "广东三维智能装备有限公司",
+    "existing_alias": "广东三维智能装备",
+    "final_alias": "广东三维智能装备",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东升学帮科技有限公司": {
+    "name": "广东升学帮科技有限公司",
+    "existing_alias": "广东升学帮科技",
+    "final_alias": "广东升学帮科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "教育",
+    "target_industry_code": "19",
+    "industry_reason": "教育规划与高考升学服务",
+    "needs_update": true
+  },
+  "广东南方财经全媒体集团股份有限公司": {
+    "name": "广东南方财经全媒体集团股份有限公司",
+    "existing_alias": "广东南方财经全媒体",
+    "final_alias": "广东南方财经全媒体",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "新闻出版",
+    "target_industry_code": "23",
+    "industry_reason": "主流财经全媒体集团",
+    "needs_update": true
+  },
+  "广东博迈医疗科技股份有限公司": {
+    "name": "广东博迈医疗科技股份有限公司",
+    "existing_alias": "广东博迈医疗科技",
+    "final_alias": "广东博迈医疗科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "广东嘉腾机器人自动化有限公司": {
+    "name": "广东嘉腾机器人自动化有限公司",
+    "existing_alias": "广东嘉腾机器人自动化",
+    "final_alias": "广东嘉腾机器人自动化",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "补充民企类型",
+    "existing_industry": [],
+    "target_industry_name": "机器人",
+    "target_industry_code": "27",
+    "industry_reason": "工业移动机器人AGV及智能制造",
+    "needs_update": true
+  },
+  "广东国亨优合新材料股份有限公司": {
+    "name": "广东国亨优合新材料股份有限公司",
+    "existing_alias": "广东国亨优合新材料",
+    "final_alias": "广东国亨优合新材料",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东德聚技术股份有限公司": {
+    "name": "广东德聚技术股份有限公司",
+    "existing_alias": "广东德聚技术",
+    "final_alias": "广东德聚技术",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "高科技工业电子胶粘材料",
+    "needs_update": true
+  },
+  "广东模力工坊文化产业有限公司": {
+    "name": "广东模力工坊文化产业有限公司",
+    "existing_alias": "广东模力工坊文化产业",
+    "final_alias": "广东模力工坊文化产业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "广告传媒/文化体育",
+    "target_industry_code": "3",
+    "industry_reason": "文化创意与动漫潮玩产业",
+    "needs_update": true
+  },
+  "广东电邦新能源科技有限公司": {
+    "name": "广东电邦新能源科技有限公司",
+    "existing_alias": "广东电邦新能源科技",
+    "final_alias": "广东电邦新能源科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东省进出口集团有限公司": {
+    "name": "广东省进出口集团有限公司",
+    "existing_alias": "广东省进出口",
+    "final_alias": "广东省进出口",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "批发零售",
+    "target_industry_code": "21",
+    "industry_reason": "进出口贸易与供应链",
+    "needs_update": true
+  },
+  "广东粤科创业投资管理有限公司": {
+    "name": "广东粤科创业投资管理有限公司",
+    "existing_alias": "广东粤科创业投资管理",
+    "final_alias": "广东粤科创业投资管理",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东粤科风险投资管理有限公司": {
+    "name": "广东粤科风险投资管理有限公司",
+    "existing_alias": "广东粤科风险投资管理",
+    "final_alias": "广东粤科风险投资管理",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东邦固化学科技有限公司": {
+    "name": "广东邦固化学科技有限公司",
+    "existing_alias": "广东邦固化学科技",
+    "final_alias": "广东邦固化学科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "广东领益智造股份有限公司深圳分公司": {
+    "name": "广东领益智造股份有限公司深圳分公司",
+    "existing_alias": "广东领益智造深圳分公司",
+    "final_alias": "广东领益智造深圳分公司",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "4"
+    ],
+    "target_type": [
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "综合",
+    "target_industry_code": "13",
+    "industry_reason": "多元化综合业务",
+    "needs_update": false
+  },
+  "广东龙行天下科技股份有限公司": {
+    "name": "广东龙行天下科技股份有限公司",
+    "existing_alias": "广东龙行天下科技",
+    "final_alias": "广东龙行天下科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "快消",
+    "target_industry_code": "4",
+    "industry_reason": "大型鞋履与运动消费品制造",
+    "needs_update": true
+  },
+  "成都市青白江区人民政府大弯街道办事处": {
+    "name": "成都市青白江区人民政府大弯街道办事处",
+    "existing_alias": "大弯街道办事处",
+    "final_alias": "大弯街道办事处",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "9"
+    ],
+    "target_type": [
+      "9"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "42"
+    ],
+    "target_industry_name": "社会组织",
+    "target_industry_code": "42",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "招商银行股份有限公司东莞分行": {
+    "name": "招商银行股份有限公司东莞分行",
+    "existing_alias": "招商银行",
+    "final_alias": "招商银行",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "4"
+    ],
+    "target_type": [
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "歌尔智能科技有限公司": {
+    "name": "歌尔智能科技有限公司",
+    "existing_alias": "歌尔智能科技",
+    "final_alias": "歌尔智能科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "0"
+    ],
+    "target_industry_name": "IT/互联网/游戏",
+    "target_industry_code": "0",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "永赢金融租赁有限公司": {
+    "name": "永赢金融租赁有限公司",
+    "existing_alias": "永赢金融租赁",
+    "final_alias": "永赢金融租赁",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "河北金风电控设备有限公司新疆分公司": {
+    "name": "河北金风电控设备有限公司新疆分公司",
+    "existing_alias": "河北金风电控设备新疆分公司",
+    "final_alias": "河北金风电控设备新疆分公司",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "浩吉铁路股份有限公司": {
+    "name": "浩吉铁路股份有限公司",
+    "existing_alias": "浩吉铁路",
+    "final_alias": "浩吉铁路",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "8"
+    ],
+    "target_industry_name": "物流/供应链/交通运输",
+    "target_industry_code": "8",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "海南省水利电力集团有限公司": {
+    "name": "海南省水利电力集团有限公司",
+    "existing_alias": "海南省水利电力",
+    "final_alias": "海南省水利电力",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "清洁能源与水利水电",
+    "needs_update": true
+  },
+  "深圳市中医院": {
+    "name": "深圳市中医院",
+    "existing_alias": "深圳市中医院",
+    "final_alias": "深圳市中医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "深圳市商汤科技有限公司": {
+    "name": "深圳市商汤科技有限公司",
+    "existing_alias": "深圳市商汤科技",
+    "final_alias": "深圳市商汤科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "人工智能",
+    "target_industry_code": "28",
+    "industry_reason": "AI与计算机视觉",
+    "needs_update": true
+  },
+  "深圳市妇幼保健院": {
+    "name": "深圳市妇幼保健院",
+    "existing_alias": "深圳市妇幼保健院",
+    "final_alias": "深圳市妇幼保健院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "6"
+    ],
+    "target_type": [
+      "6"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "深圳市安保医疗科技股份有限公司": {
+    "name": "深圳市安保医疗科技股份有限公司",
+    "existing_alias": "深圳市安保医疗科技",
+    "final_alias": "深圳市安保医疗科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "5"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": false
+  },
+  "深圳市捷佳伟创新能源装备股份有限公司": {
+    "name": "深圳市捷佳伟创新能源装备股份有限公司",
+    "existing_alias": "深圳市捷佳伟创新能源装备",
+    "final_alias": "深圳市捷佳伟创新能源装备",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "4"
+    ],
+    "target_type": [
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "深圳市朗坤科技股份有限公司": {
+    "name": "深圳市朗坤科技股份有限公司",
+    "existing_alias": "深圳市朗坤科技",
+    "final_alias": "深圳市朗坤科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3",
+      "4"
+    ],
+    "target_type": [
+      "3",
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "15"
+    ],
+    "target_industry_name": "环保",
+    "target_industry_code": "15",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "深圳市沃尔核材股份有限公司": {
+    "name": "深圳市沃尔核材股份有限公司",
+    "existing_alias": "深圳市沃尔核材",
+    "final_alias": "深圳市沃尔核材",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3",
+      "4"
+    ],
+    "target_type": [
+      "3",
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "深圳市第三儿童医院": {
+    "name": "深圳市第三儿童医院",
+    "existing_alias": "深圳市第三儿童医院",
+    "final_alias": "深圳市第三儿童医院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "深圳市蓝天教育培训学校": {
+    "name": "深圳市蓝天教育培训学校",
+    "existing_alias": "深圳市蓝天教育培训学校",
+    "final_alias": "深圳市蓝天教育培训学校",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "19"
+    ],
+    "target_industry_name": "教育",
+    "target_industry_code": "19",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "深圳理工大学": {
+    "name": "深圳理工大学",
+    "existing_alias": "深圳理工大学",
+    "final_alias": "深圳理工大学",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "19"
+    ],
+    "target_industry_name": "教育",
+    "target_industry_code": "19",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "清控人居控股集团有限公司": {
+    "name": "清控人居控股集团有限公司",
+    "existing_alias": "清控人居控股",
+    "final_alias": "清控人居控股",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "9"
+    ],
+    "target_industry_name": "建筑/房地产",
+    "target_industry_code": "9",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "特发光网科技（东莞）有限公司": {
+    "name": "特发光网科技（东莞）有限公司",
+    "existing_alias": "特发光网科技",
+    "final_alias": "特发光网科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "通信",
+    "target_industry_code": "17",
+    "industry_reason": "光纤光缆通信技术",
+    "needs_update": true
+  },
+  "珠海斗门超毅实业有限公司": {
+    "name": "珠海斗门超毅实业有限公司",
+    "existing_alias": "珠海斗门超毅实业",
+    "final_alias": "珠海斗门超毅实业",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "硬件/半导体/芯片",
+    "target_industry_code": "6",
+    "industry_reason": "高精密印制电路板PCB制造",
+    "needs_update": true
+  },
+  "珠海格力精密模具有限公司": {
+    "name": "珠海格力精密模具有限公司",
+    "existing_alias": "珠海格力精密模具",
+    "final_alias": "珠海格力精密模具",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "申万宏源证券有限公司": {
+    "name": "申万宏源证券有限公司",
+    "existing_alias": "申万宏源",
+    "final_alias": "申万宏源",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "1",
+      "1-2"
+    ],
+    "target_industry_name": "金融业",
+    "target_industry_code": "1",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": true
+  },
+  "福建南孚市场营销有限公司": {
+    "name": "福建南孚市场营销有限公司",
+    "existing_alias": "南孚",
+    "final_alias": "南孚",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3",
+      "13"
+    ],
+    "target_type": [
+      "3",
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "维沃移动通信有限公司": {
+    "name": "维沃移动通信有限公司",
+    "existing_alias": "维沃移动通信",
+    "final_alias": "维沃移动通信",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "17"
+    ],
+    "target_industry_name": "通信",
+    "target_industry_code": "17",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "西充县青狮镇卫生院": {
+    "name": "西充县青狮镇卫生院",
+    "existing_alias": "西充县青狮镇卫生院",
+    "final_alias": "西充县青狮镇卫生院",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "10"
+    ],
+    "target_type": [
+      "10"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "生物/医疗/制药",
+    "target_industry_code": "5",
+    "industry_reason": "医疗卫生/医院机构",
+    "needs_update": true
+  },
+  "通达扬帆科技（东莞）有限公司": {
+    "name": "通达扬帆科技（东莞）有限公司",
+    "existing_alias": "通达扬帆科技",
+    "final_alias": "通达扬帆科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "五金塑胶精密制造",
+    "needs_update": true
+  },
+  "酒泉钢铁（集团）有限责任公司": {
+    "name": "酒泉钢铁（集团）有限责任公司",
+    "existing_alias": "酒泉钢铁（）",
+    "final_alias": "酒泉钢铁（）",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1"
+    ],
+    "target_type": [
+      "1"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "长园电子（东莞）有限公司": {
+    "name": "长园电子（东莞）有限公司",
+    "existing_alias": "长园电子",
+    "final_alias": "长园电子",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "3"
+    ],
+    "target_type": [
+      "3"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "13"
+    ],
+    "target_industry_name": "消费电子",
+    "target_industry_code": "33",
+    "industry_reason": "电子辐射交联高分子元器件",
+    "needs_update": true
+  },
+  "飞亚达精密科技股份有限公司": {
+    "name": "飞亚达精密科技股份有限公司",
+    "existing_alias": "飞亚达精密科技",
+    "final_alias": "飞亚达精密科技",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "1",
+      "4"
+    ],
+    "target_type": [
+      "1",
+      "4"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "10"
+    ],
+    "target_industry_name": "机械/制造业",
+    "target_industry_code": "10",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  },
+  "鹤山天山金属材料制品有限公司": {
+    "name": "鹤山天山金属材料制品有限公司",
+    "existing_alias": "鹤山天山金属材料制品",
+    "final_alias": "鹤山天山金属材料制品",
+    "alias_action": "100%绝对保留已有简称",
+    "existing_type": [
+      "13"
+    ],
+    "target_type": [
+      "13"
+    ],
+    "type_reason": "100%保持既有类型",
+    "existing_industry": [
+      "11"
+    ],
+    "target_industry_name": "材料/能源/化工",
+    "target_industry_code": "11",
+    "industry_reason": "保持现有合规行业",
+    "needs_update": false
+  }
+}

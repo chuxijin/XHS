@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "公众号横滑组件助手",
+  "version": "0.1.0",
+  "description": "在微信公众号后台生成并插入横向滑动多图组件。",
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://mp.weixin.qq.com/*"
+  ],
+  "action": {
+    "default_title": "横滑组件",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://mp.weixin.qq.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}

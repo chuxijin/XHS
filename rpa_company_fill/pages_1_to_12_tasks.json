@@ -1,0 +1,2059 @@
+[
+  {
+    "page": 1,
+    "rows": [
+      {
+        "page": 1,
+        "row_idx": 1,
+        "id": "6abc1ae55934a80d22a426b4",
+        "name": "永赢金融租赁有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685388837668882",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5965b8ecaa645dfb6250"
+      },
+      {
+        "page": 1,
+        "row_idx": 2,
+        "id": "6abbe4e6f348714bf8839432",
+        "name": "",
+        "task_name": "beisen_spider_task",
+        "url": "https://lifewit.zhiye.com/api/JobAd/GetJobAdPageList",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 1,
+        "row_idx": 3,
+        "id": "6abbdc79f348714bf8839431",
+        "name": "",
+        "task_name": "beisen_spider_task",
+        "url": "https://tcnsh.zhiye.com/api/JobAd/GetJobAdPageList",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 1,
+        "row_idx": 4,
+        "id": "6abbdc3287e57c42a5264576",
+        "name": "",
+        "task_name": "beisen_spider_task",
+        "url": "https://starmerx.zhiye.com/api/JobAd/GetJobAdPageList",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 1,
+        "row_idx": 5,
+        "id": "6abbd6441aa4838e59fe0367",
+        "name": "",
+        "task_name": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/ifquant/170049",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 1,
+        "row_idx": 6,
+        "id": "6abbafe687e57c42a526455a",
+        "name": "成都市青白江区人民政府大弯街道办事处",
+        "task_name": "zhao_pin_spider_task",
+        "url": "KA1509400545P90000001000",
+        "org_type": [
+          "国家机关"
+        ],
+        "industry": [
+          "社会组织"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abbb4fad528799ccc01c4e9"
+      },
+      {
+        "page": 1,
+        "row_idx": 7,
+        "id": "6abb9af8f348714bf8839428",
+        "name": "北京和利时系统工程有限公司",
+        "task_name": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/hollysys/182070",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "科研技术"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abbb524b8ecaa645dfb4291"
+      },
+      {
+        "page": 1,
+        "row_idx": 8,
+        "id": "6abb90ba87e57c42a52644d2",
+        "name": "申万宏源证券有限公司",
+        "task_name": "moka_spider_task",
+        "url": "https://app.mokahr.com/campus-recruitment/swhysc-job/145108",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "金融业",
+          "券商"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67434f4413cf181320506dfd"
+      },
+      {
+        "page": 1,
+        "row_idx": 9,
+        "id": "6abb89d2f348714bf8839425",
+        "name": "宝山钢铁股份有限公司",
+        "task_name": "zhao_pin_spider_task",
+        "url": "KA1282573408P90000004000",
+        "org_type": [
+          "央企",
+          "上市",
+          "国企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6743467713cf1813205066a8"
+      },
+      {
+        "page": 1,
+        "row_idx": 10,
+        "id": "6abb86758659491f3d0e54c3",
+        "name": "福建南孚市场营销有限公司",
+        "task_name": "five_one_job_spider_task",
+        "url": "10602718",
+        "org_type": [
+          "外商独资"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6743505413cf181320506e8b"
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "rows": [
+      {
+        "page": 2,
+        "row_idx": 1,
+        "id": "6abc5065f348714bf8839435",
+        "name": "中信投资管理（上海）有限公司",
+        "task_name": "five_one_job_spider_task",
+        "url": "10608907",
+        "org_type": [
+          "外商独资"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc527a2eb18be16dba9156"
+      },
+      {
+        "page": 2,
+        "row_idx": 2,
+        "id": "6abc1e825934a80d22a42721",
+        "name": "宁夏回族自治区消防救援总队训练和战勤保障支队",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219376275863634481",
+        "org_type": [
+          "国家机关"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52d77ca14e930114cecd"
+      },
+      {
+        "page": 2,
+        "row_idx": 3,
+        "id": "6abc1e7d5934a80d22a42720",
+        "name": "东莞市盛元新材料科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641912527684515",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52aa2eb18be16dba915e"
+      },
+      {
+        "page": 2,
+        "row_idx": 4,
+        "id": "6abc1e785934a80d22a4271f",
+        "name": "长园电子（东莞）有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "165357141262077917",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52af7ca14e930114cec4"
+      },
+      {
+        "page": 2,
+        "row_idx": 5,
+        "id": "6abc1e755934a80d22a4271e",
+        "name": "东莞市时运佳实业投资有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641918970135459",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52b57ca14e930114cec8"
+      },
+      {
+        "page": 2,
+        "row_idx": 6,
+        "id": "6abc1e655934a80d22a4271d",
+        "name": "平安银行股份有限公司东莞分行",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641922543682467",
+        "org_type": [
+          "银行"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52bb2eb18be16dba9161"
+      },
+      {
+        "page": 2,
+        "row_idx": 7,
+        "id": "6abc1e625934a80d22a4271c",
+        "name": "东莞市达锂电子有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173905159674404764",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52c0cda25a4715d5f9a3"
+      },
+      {
+        "page": 2,
+        "row_idx": 8,
+        "id": "6abc1e5e5934a80d22a4271b",
+        "name": "东莞市志橙半导体材料有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219643004774777784",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "硬件/半导体/芯片"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52c62eb18be16dba9164"
+      },
+      {
+        "page": 2,
+        "row_idx": 9,
+        "id": "6abc1e5b5934a80d22a4271a",
+        "name": "东莞美宝环保设备有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219643009304626104",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "环保"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52cbd528799ccc0203a3"
+      },
+      {
+        "page": 2,
+        "row_idx": 10,
+        "id": "6abc1e585934a80d22a42719",
+        "name": "东莞百宏实业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641939555779491",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc52d1be134481e0d3bf33"
+      }
+    ]
+  },
+  {
+    "page": 3,
+    "rows": [
+      {
+        "page": 3,
+        "row_idx": 1,
+        "id": "6abc1e555934a80d22a42718",
+        "name": "东莞市卓茂仪器有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173690426425876377",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc548b2eb18be16dba916d"
+      },
+      {
+        "page": 3,
+        "row_idx": 2,
+        "id": "6abc1e525934a80d22a42717",
+        "name": "东莞触点智能装备有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219643013264049080",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54902eb18be16dba9170"
+      },
+      {
+        "page": 3,
+        "row_idx": 3,
+        "id": "6abc1e4e5934a80d22a42716",
+        "name": "东莞联茂电子科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173905173314277364",
+        "org_type": [
+          "外商独资"
+        ],
+        "industry": [
+          "硬件/半导体/芯片"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5497cda25a4715d5f9e6"
+      },
+      {
+        "page": 3,
+        "row_idx": 4,
+        "id": "6abc1e4b5934a80d22a42715",
+        "name": "通达扬帆科技（东莞）有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641948900688803",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc549ccda25a4715d5f9e9"
+      },
+      {
+        "page": 3,
+        "row_idx": 5,
+        "id": "6abc1e495934a80d22a42714",
+        "name": "东莞市交易咨询服务有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641953900299171",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54d3cda25a4715d5f9f0"
+      },
+      {
+        "page": 3,
+        "row_idx": 6,
+        "id": "6abc1e425934a80d22a42713",
+        "name": "特发光网科技（东莞）有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641962238575523",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54d87ca14e930114ced7"
+      },
+      {
+        "page": 3,
+        "row_idx": 7,
+        "id": "6abc1e3f5934a80d22a42712",
+        "name": "广东龙行天下科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641970778178467",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54ddcda25a4715d5f9f3"
+      },
+      {
+        "page": 3,
+        "row_idx": 8,
+        "id": "6abc1e3c5934a80d22a42711",
+        "name": "招商银行股份有限公司东莞分行",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641974821487523",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54e2cda25a4715d5f9f7"
+      },
+      {
+        "page": 3,
+        "row_idx": 9,
+        "id": "6abc1e395934a80d22a42710",
+        "name": "广东升学帮科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219643024068576184",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54e7cda25a4715d5f9fc"
+      },
+      {
+        "page": 3,
+        "row_idx": 10,
+        "id": "6abc1e2b5934a80d22a4270f",
+        "name": "中联品检（东莞）检验技术有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219641982237016995",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc54eccda25a4715d5fa00"
+      }
+    ]
+  },
+  {
+    "page": 4,
+    "rows": [
+      {
+        "page": 4,
+        "row_idx": 1,
+        "id": "6abc1ddd5934a80d22a42704",
+        "name": "东莞实业投资控股集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192124376919837612",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68f979ab81abf794962ec44e"
+      },
+      {
+        "page": 4,
+        "row_idx": 2,
+        "id": "6abc1dda5934a80d22a42703",
+        "name": "东莞市朗晟材料科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219642027753604003",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55a6cda25a4715d5fa2c"
+      },
+      {
+        "page": 4,
+        "row_idx": 3,
+        "id": "6abc1dd75934a80d22a42702",
+        "name": "东莞市斯乐克电子科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354471861945249",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "硬件/半导体/芯片"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55abcda25a4715d5fa2f"
+      },
+      {
+        "page": 4,
+        "row_idx": 4,
+        "id": "6abc1dd55934a80d22a42701",
+        "name": "广东博迈医疗科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "165356322164838372",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68846e7c663259f0d0efb054"
+      },
+      {
+        "page": 4,
+        "row_idx": 5,
+        "id": "6abc1dd35934a80d22a42700",
+        "name": "东莞市尧东机械制造有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354473673884577",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55b46aca65fdc0cf4b6c"
+      },
+      {
+        "page": 4,
+        "row_idx": 6,
+        "id": "6abc1dd05934a80d22a426ff",
+        "name": "广东国亨优合新材料股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173690383241314549",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55b8cda25a4715d5fa37"
+      },
+      {
+        "page": 4,
+        "row_idx": 7,
+        "id": "6abc1dcd5934a80d22a426fe",
+        "name": "歌尔智能科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354475603264417",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "IT/互联网/游戏"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55bd6aca65fdc0cf4b70"
+      },
+      {
+        "page": 4,
+        "row_idx": 8,
+        "id": "6abc1dcb5934a80d22a426fd",
+        "name": "东莞均益精密五金制品有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354477314540449",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55c2cda25a4715d5fa3b"
+      },
+      {
+        "page": 4,
+        "row_idx": 9,
+        "id": "6abc1dc95934a80d22a426fc",
+        "name": "东莞市德声实业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354480334439329",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55c7cda25a4715d5fa3e"
+      },
+      {
+        "page": 4,
+        "row_idx": 10,
+        "id": "6abc1dc55934a80d22a426fb",
+        "name": "广东德聚技术股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354481995383713",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55cccda25a4715d5fa42"
+      }
+    ]
+  },
+  {
+    "page": 5,
+    "rows": [
+      {
+        "page": 5,
+        "row_idx": 1,
+        "id": "6abc1ddd5934a80d22a42704",
+        "name": "东莞实业投资控股集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192124376919837612",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68f979ab81abf794962ec44e"
+      },
+      {
+        "page": 5,
+        "row_idx": 2,
+        "id": "6abc1dda5934a80d22a42703",
+        "name": "东莞市朗晟材料科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219642027753604003",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55a6cda25a4715d5fa2c"
+      },
+      {
+        "page": 5,
+        "row_idx": 3,
+        "id": "6abc1dd75934a80d22a42702",
+        "name": "东莞市斯乐克电子科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354471861945249",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "硬件/半导体/芯片"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55abcda25a4715d5fa2f"
+      },
+      {
+        "page": 5,
+        "row_idx": 4,
+        "id": "6abc1dd55934a80d22a42701",
+        "name": "广东博迈医疗科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "165356322164838372",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68846e7c663259f0d0efb054"
+      },
+      {
+        "page": 5,
+        "row_idx": 5,
+        "id": "6abc1dd35934a80d22a42700",
+        "name": "东莞市尧东机械制造有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354473673884577",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55b46aca65fdc0cf4b6c"
+      },
+      {
+        "page": 5,
+        "row_idx": 6,
+        "id": "6abc1dd05934a80d22a426ff",
+        "name": "广东国亨优合新材料股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173690383241314549",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55b8cda25a4715d5fa37"
+      },
+      {
+        "page": 5,
+        "row_idx": 7,
+        "id": "6abc1dcd5934a80d22a426fe",
+        "name": "歌尔智能科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354475603264417",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "IT/互联网/游戏"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55bd6aca65fdc0cf4b70"
+      },
+      {
+        "page": 5,
+        "row_idx": 8,
+        "id": "6abc1dcb5934a80d22a426fd",
+        "name": "东莞均益精密五金制品有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354477314540449",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55c2cda25a4715d5fa3b"
+      },
+      {
+        "page": 5,
+        "row_idx": 9,
+        "id": "6abc1dc95934a80d22a426fc",
+        "name": "东莞市德声实业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354480334439329",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55c7cda25a4715d5fa3e"
+      },
+      {
+        "page": 5,
+        "row_idx": 10,
+        "id": "6abc1dc55934a80d22a426fb",
+        "name": "广东德聚技术股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354481995383713",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc55cccda25a4715d5fa42"
+      }
+    ]
+  },
+  {
+    "page": 6,
+    "rows": [
+      {
+        "page": 6,
+        "row_idx": 1,
+        "id": "6abc1dc25934a80d22a426fa",
+        "name": "广东电邦新能源科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354483840877473",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5613be134481e0d3bf6a"
+      },
+      {
+        "page": 6,
+        "row_idx": 2,
+        "id": "6abc1dbb5934a80d22a426f9",
+        "name": "广东三维智能装备有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354485568930721",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5618b8ecaa645dfb61bc"
+      },
+      {
+        "page": 6,
+        "row_idx": 3,
+        "id": "6abc1db95934a80d22a426f8",
+        "name": "东莞市立敏达电子科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354487229875105",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "硬件/半导体/芯片"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68f979b881abf794962ec452"
+      },
+      {
+        "page": 6,
+        "row_idx": 4,
+        "id": "6abc1db65934a80d22a426f7",
+        "name": "东莞市交通投资控股集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354488957928353",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "物流/供应链/交通运输"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6743342878d218c12f45a3af"
+      },
+      {
+        "page": 6,
+        "row_idx": 5,
+        "id": "6abc1db25934a80d22a426f6",
+        "name": "广东模力工坊文化产业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354490870530977",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5624b8ecaa645dfb61c0"
+      },
+      {
+        "page": 6,
+        "row_idx": 6,
+        "id": "6abc1daf5934a80d22a426f5",
+        "name": "东莞市佳超五金科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354492514698145",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5629c19080a80163c0a8"
+      },
+      {
+        "page": 6,
+        "row_idx": 7,
+        "id": "6abc1dad5934a80d22a426f4",
+        "name": "东莞衍创文化发展有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354494343414689",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc562e6aca65fdc0cf4b87"
+      },
+      {
+        "page": 6,
+        "row_idx": 8,
+        "id": "6abc1dab5934a80d22a426f3",
+        "name": "维沃移动通信有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354496608338849",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "消费电子"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "674330d0ae6e8ca2c253fe3b"
+      },
+      {
+        "page": 6,
+        "row_idx": 9,
+        "id": "6abc1da75934a80d22a426f2",
+        "name": "东莞铭普光磁股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "200049758553772467",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5636cda25a4715d5fa5b"
+      },
+      {
+        "page": 6,
+        "row_idx": 10,
+        "id": "6abc1da55934a80d22a426f1",
+        "name": "东莞市凯格精机股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173891760987049965",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc563b6aca65fdc0cf4b8a"
+      }
+    ]
+  },
+  {
+    "page": 7,
+    "rows": [
+      {
+        "page": 7,
+        "row_idx": 1,
+        "id": "6abc1d675934a80d22a426e6",
+        "name": "东莞市人民医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354514861949857",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc56eebe134481e0d3bf81"
+      },
+      {
+        "page": 7,
+        "row_idx": 2,
+        "id": "6abc1d645934a80d22a426e5",
+        "name": "东莞光明眼科医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192234987041328041",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc56f26aca65fdc0cf4ba2"
+      },
+      {
+        "page": 7,
+        "row_idx": 3,
+        "id": "6abc1d615934a80d22a426e4",
+        "name": "东莞市第七人民医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354516707443617",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc56f7d528799ccc020472"
+      },
+      {
+        "page": 7,
+        "row_idx": 4,
+        "id": "6abc1d5f5934a80d22a426e3",
+        "name": "东莞市东坑医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354518452274081",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc56fbcda25a4715d5fa9c"
+      },
+      {
+        "page": 7,
+        "row_idx": 5,
+        "id": "6abc1d5c5934a80d22a426e2",
+        "name": "东莞市水乡中心医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354520482317217",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5700d528799ccc020476"
+      },
+      {
+        "page": 7,
+        "row_idx": 6,
+        "id": "6abc1d5a5934a80d22a426e1",
+        "name": "东莞市第九人民医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354522780795809",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5704b8ecaa645dfb61d9"
+      },
+      {
+        "page": 7,
+        "row_idx": 7,
+        "id": "6abc1d575934a80d22a426e0",
+        "name": "东莞市第八人民医院（东莞市儿童医院）",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354524525626273",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5709d528799ccc02047b"
+      },
+      {
+        "page": 7,
+        "row_idx": 8,
+        "id": "6abc1d545934a80d22a426df",
+        "name": "东莞市滨海湾中心医院（东莞市太平人民医院、东莞市第五人民医院）",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354526253679521",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc570ecda25a4715d5faa2"
+      },
+      {
+        "page": 7,
+        "row_idx": 9,
+        "id": "6abc1d505934a80d22a426de",
+        "name": "东莞市东部中心医院(暨南大学附属第六医院)",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354527964955553",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5712cda25a4715d5faa6"
+      },
+      {
+        "page": 7,
+        "row_idx": 10,
+        "id": "6abc1d4e5934a80d22a426dd",
+        "name": "东莞市大朗医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354529642677153",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5717d528799ccc02047f"
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "rows": [
+      {
+        "page": 8,
+        "row_idx": 1,
+        "id": "6abc1d3c5934a80d22a426dc",
+        "name": "东莞市妇幼保健院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354531303621537",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5760cda25a4715d5fabe"
+      },
+      {
+        "page": 8,
+        "row_idx": 2,
+        "id": "6abc1d395934a80d22a426db",
+        "name": "东莞市清溪医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354533031674785",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5764cda25a4715d5fac1"
+      },
+      {
+        "page": 8,
+        "row_idx": 3,
+        "id": "6abc1d375934a80d22a426da",
+        "name": "东莞健力口腔医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173905193161727900",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5769cda25a4715d5fac4"
+      },
+      {
+        "page": 8,
+        "row_idx": 4,
+        "id": "6abc1d325934a80d22a426d9",
+        "name": "东莞台心医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354534910722977",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 8,
+        "row_idx": 5,
+        "id": "6abc1d2f5934a80d22a426d8",
+        "name": "东莞市厚街医院（东莞市应急医院）",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354536638776225",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5772cda25a4715d5fac7"
+      },
+      {
+        "page": 8,
+        "row_idx": 6,
+        "id": "6abc1d295934a80d22a426d7",
+        "name": "深圳市沃尔核材股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685314378350835",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67434bc913cf181320506b4d"
+      },
+      {
+        "page": 8,
+        "row_idx": 7,
+        "id": "6abc1d265934a80d22a426d6",
+        "name": "飞亚达精密科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685405063524222",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6743555713cf18132050724c"
+      },
+      {
+        "page": 8,
+        "row_idx": 8,
+        "id": "6abc1d235934a80d22a426d5",
+        "name": "深圳市朗坤科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192969175445015688",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "环保"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67434a9213cf1813205069ff"
+      },
+      {
+        "page": 8,
+        "row_idx": 9,
+        "id": "6abc1d215934a80d22a426d4",
+        "name": "珠海斗门超毅实业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354538870145953",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57822eb18be16dba9193"
+      },
+      {
+        "page": 8,
+        "row_idx": 10,
+        "id": "6abc1d1f5934a80d22a426d3",
+        "name": "深圳市捷佳伟创新能源装备股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354540682085281",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68ee253d3e950c122ccad68b"
+      }
+    ]
+  },
+  {
+    "page": 9,
+    "rows": [
+      {
+        "page": 9,
+        "row_idx": 1,
+        "id": "6abc1d3c5934a80d22a426dc",
+        "name": "东莞市妇幼保健院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354531303621537",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5760cda25a4715d5fabe"
+      },
+      {
+        "page": 9,
+        "row_idx": 2,
+        "id": "6abc1d395934a80d22a426db",
+        "name": "东莞市清溪医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354533031674785",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5764cda25a4715d5fac1"
+      },
+      {
+        "page": 9,
+        "row_idx": 3,
+        "id": "6abc1d375934a80d22a426da",
+        "name": "东莞健力口腔医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "173905193161727900",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5769cda25a4715d5fac4"
+      },
+      {
+        "page": 9,
+        "row_idx": 4,
+        "id": "6abc1d325934a80d22a426d9",
+        "name": "东莞台心医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354534910722977",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": ""
+      },
+      {
+        "page": 9,
+        "row_idx": 5,
+        "id": "6abc1d2f5934a80d22a426d8",
+        "name": "东莞市厚街医院（东莞市应急医院）",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354536638776225",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5772cda25a4715d5fac7"
+      },
+      {
+        "page": 9,
+        "row_idx": 6,
+        "id": "6abc1d295934a80d22a426d7",
+        "name": "深圳市沃尔核材股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685314378350835",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67434bc913cf181320506b4d"
+      },
+      {
+        "page": 9,
+        "row_idx": 7,
+        "id": "6abc1d265934a80d22a426d6",
+        "name": "飞亚达精密科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685405063524222",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6743555713cf18132050724c"
+      },
+      {
+        "page": 9,
+        "row_idx": 8,
+        "id": "6abc1d235934a80d22a426d5",
+        "name": "深圳市朗坤科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192969175445015688",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "环保"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67434a9213cf1813205069ff"
+      },
+      {
+        "page": 9,
+        "row_idx": 9,
+        "id": "6abc1d215934a80d22a426d4",
+        "name": "珠海斗门超毅实业有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354538870145953",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57822eb18be16dba9193"
+      },
+      {
+        "page": 9,
+        "row_idx": 10,
+        "id": "6abc1d1f5934a80d22a426d3",
+        "name": "深圳市捷佳伟创新能源装备股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354540682085281",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68ee253d3e950c122ccad68b"
+      }
+    ]
+  },
+  {
+    "page": 10,
+    "rows": [
+      {
+        "page": 10,
+        "row_idx": 1,
+        "id": "6abc1d1d5934a80d22a426d2",
+        "name": "广东邦固化学科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192969173800848520",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "698bcdfdbf357ab16b787fa8"
+      },
+      {
+        "page": 10,
+        "row_idx": 2,
+        "id": "6abc1d1a5934a80d22a426d1",
+        "name": "深圳市蓝天教育培训学校",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192969170411850888",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "教育"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57d2cda25a4715d5fae8"
+      },
+      {
+        "page": 10,
+        "row_idx": 3,
+        "id": "6abc1d185934a80d22a426d0",
+        "name": "广东领益智造股份有限公司深圳分公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354543081227169",
+        "org_type": [
+          "上市"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57d9cda25a4715d5faeb"
+      },
+      {
+        "page": 10,
+        "row_idx": 4,
+        "id": "6abc1d165934a80d22a426cf",
+        "name": "深圳理工大学",
+        "task_name": "guopin_v3_spider_task",
+        "url": "192969632456379305",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "教育"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57e4cda25a4715d5faf6"
+      },
+      {
+        "page": 10,
+        "row_idx": 5,
+        "id": "6abc1d135934a80d22a426ce",
+        "name": "广东粤科风险投资管理有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354545027384225",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57ee6aca65fdc0cf4bd7"
+      },
+      {
+        "page": 10,
+        "row_idx": 6,
+        "id": "6abc1d0d5934a80d22a426cd",
+        "name": "鹤山天山金属材料制品有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354546822546337",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57f32eb18be16dba9199"
+      },
+      {
+        "page": 10,
+        "row_idx": 7,
+        "id": "6abc1d0a5934a80d22a426cc",
+        "name": "东莞市东城实业集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "175129491155198617",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc57feb8ecaa645dfb6211"
+      },
+      {
+        "page": 10,
+        "row_idx": 8,
+        "id": "6abc1d085934a80d22a426cb",
+        "name": "国家超级计算深圳中心（深圳云计算中心）",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685374831779973",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5806cda25a4715d5fb04"
+      },
+      {
+        "page": 10,
+        "row_idx": 9,
+        "id": "6abc1d055934a80d22a426ca",
+        "name": "广东南方财经全媒体集团股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "94300317050470649",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6a4f00678e6b25faa7bc3890"
+      },
+      {
+        "page": 10,
+        "row_idx": 10,
+        "id": "6abc1d035934a80d22a426c9",
+        "name": "珠海格力精密模具有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354550849078177",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc580f6aca65fdc0cf4bdc"
+      }
+    ]
+  },
+  {
+    "page": 11,
+    "rows": [
+      {
+        "page": 11,
+        "row_idx": 1,
+        "id": "6abc1d005934a80d22a426c8",
+        "name": "深圳市中医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354552644240289",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5863d528799ccc0204d4"
+      },
+      {
+        "page": 11,
+        "row_idx": 2,
+        "id": "6abc1cfe5934a80d22a426c7",
+        "name": "深圳市安保医疗科技股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354554472956833",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "生物/医疗/制药"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58686aca65fdc0cf4be7"
+      },
+      {
+        "page": 11,
+        "row_idx": 3,
+        "id": "6abc1cf05934a80d22a426c6",
+        "name": "广东省进出口集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354556855321505",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc586d6aca65fdc0cf4bea"
+      },
+      {
+        "page": 11,
+        "row_idx": 4,
+        "id": "6abc1ced5934a80d22a426c5",
+        "name": "广东粤科创业投资管理有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354558767924129",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5872cda25a4715d5fb1f"
+      },
+      {
+        "page": 11,
+        "row_idx": 5,
+        "id": "6abc1ce95934a80d22a426c4",
+        "name": "广东嘉腾机器人自动化有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685386676793178",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "67c5b1d3c182d3f258a37edd"
+      },
+      {
+        "page": 11,
+        "row_idx": 6,
+        "id": "6abc1ce55934a80d22a426c3",
+        "name": "深圳市商汤科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354560613417889",
+        "org_type": [
+          "中外合资"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68ef14df3e950c122ccae3df"
+      },
+      {
+        "page": 11,
+        "row_idx": 7,
+        "id": "6abc1cdc5934a80d22a426c2",
+        "name": "深圳市妇幼保健院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354562828010401",
+        "org_type": [],
+        "industry": [],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58806aca65fdc0cf4bed"
+      },
+      {
+        "page": 11,
+        "row_idx": 8,
+        "id": "6abc1cd85934a80d22a426c1",
+        "name": "深圳市第三儿童医院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220354564572840865",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58846aca65fdc0cf4bef"
+      },
+      {
+        "page": 11,
+        "row_idx": 9,
+        "id": "6abc1cb35934a80d22a426c0",
+        "name": "国网数字科技控股有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685376481143129",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68cbed66a04124699f7d6313"
+      },
+      {
+        "page": 11,
+        "row_idx": 10,
+        "id": "6abc1c945934a80d22a426bf",
+        "name": "浩吉铁路股份有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "95708482862317746",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "物流/供应链/交通运输"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc588d2eb18be16dba91a1"
+      }
+    ]
+  },
+  {
+    "page": 12,
+    "rows": [
+      {
+        "page": 12,
+        "row_idx": 1,
+        "id": "6abc1c915934a80d22a426be",
+        "name": "酒泉钢铁（集团）有限责任公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685325065752293",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "68ed9e32cd59b04e367657bd"
+      },
+      {
+        "page": 12,
+        "row_idx": 2,
+        "id": "6abc1c6b5934a80d22a426bd",
+        "name": "海南省水利电力集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685379065023335",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58e3d528799ccc0204f3"
+      },
+      {
+        "page": 12,
+        "row_idx": 3,
+        "id": "6abc1c3c5934a80d22a426bc",
+        "name": "河北金风电控设备有限公司新疆分公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685383509258229",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "机械/制造业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58e9c19080a80163c0c3"
+      },
+      {
+        "page": 12,
+        "row_idx": 4,
+        "id": "6abc1c205934a80d22a426bb",
+        "name": "北京国铁华晨通信科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "118735507084541994",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "IT/互联网/游戏"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58f0be134481e0d3bfad"
+      },
+      {
+        "page": 12,
+        "row_idx": 5,
+        "id": "6abc1c1b5934a80d22a426ba",
+        "name": "上海滕振新能源科技有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "219622735330935346",
+        "org_type": [
+          "民企"
+        ],
+        "industry": [
+          "材料/能源/化工"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58f7be134481e0d3bfb0"
+      },
+      {
+        "page": 12,
+        "row_idx": 6,
+        "id": "6abc1c185934a80d22a426b9",
+        "name": "清控人居控股集团有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220345812822000566",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "建筑/房地产"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc58fcd528799ccc0204f8"
+      },
+      {
+        "page": 12,
+        "row_idx": 7,
+        "id": "6abc1bd55934a80d22a426b8",
+        "name": "中铁二十局集团第四工程有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685385740165382",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "建筑/房地产"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5901d528799ccc0204fb"
+      },
+      {
+        "page": 12,
+        "row_idx": 8,
+        "id": "6abc1ba45934a80d22a426b7",
+        "name": "西充县青狮镇卫生院",
+        "task_name": "guopin_v3_spider_task",
+        "url": "220102695611008062",
+        "org_type": [
+          "事业单位"
+        ],
+        "industry": [
+          "综合"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5906c19080a80163c0c6"
+      },
+      {
+        "page": 12,
+        "row_idx": 9,
+        "id": "6abc1b355934a80d22a426b6",
+        "name": "国科科仪控股有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "10685383536709004",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "金融业"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc590c7ca14e930114cf1c"
+      },
+      {
+        "page": 12,
+        "row_idx": 10,
+        "id": "6abc1b2c5934a80d22a426b5",
+        "name": "中建（天津）轨道交通投资发展有限公司",
+        "task_name": "guopin_v3_spider_task",
+        "url": "125116752798418037",
+        "org_type": [
+          "国企"
+        ],
+        "industry": [
+          "物流/供应链/交通运输"
+        ],
+        "org_type_names": [],
+        "industry_names": [],
+        "basic_company_id": "6abc5912cda25a4715d5fb49"
+      }
+    ]
+  }
+]

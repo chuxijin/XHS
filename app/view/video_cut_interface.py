@@ -7,7 +7,6 @@ from qfluentwidgets import (TitleLabel, PushButton, PrimaryPushButton,
                             TextEdit, ProgressBar, InfoBar, InfoBarPosition, 
                             CardWidget, SubtitleLabel, BodyLabel, ScrollArea)
 
-from core.workflow import process_video_workflow
 import core.config as config
 
 class VideoCutThread(QThread):
@@ -26,6 +25,7 @@ class VideoCutThread(QThread):
             self.log_signal.emit(msg)
 
         try:
+            from core.workflow import process_video_workflow
             success, result = process_video_workflow(
                 video_path=self.video_path,
                 log_func=custom_log

@@ -18,17 +18,64 @@ from .wechat_service import (
 )
 
 
-# ---- 辅助函数 ----
-
-_SUMMARY_TEMPLATE_PREFIXES = {
-    "校招": "周日总结校招模板",
-    "实习": "周日总结实习模板",
-    "社招": "周日总结社招模板",
+_SUMMARY_CANDIDATE_PREFIXES = {
+    "校招": ["周六总结校招模板", "周日总结校招模板"],
+    "实习": ["周日总结实习模板"],
+    "社招": ["周日总结社招模板"],
 }
 
 
-async def _navigate_to_first_editor_scheme2(page, template_prefix: str, log):
-    """新建图文 → 切换草稿 → 查找周日汇总模板 → 确定 → 等待编辑器。"""
+async def _find_and_click_summary_template(editor_page, candidate_prefixes: list[str], log) -> str:
+    """在草稿列表中轮询查找标题以 candidate_prefixes 任意一项开头的模板并点击。
+    返回成功匹配的前缀字符串。"""
+    items = editor_page.locator(".weui-desktop-mass-media")
+    timeout_s = _TIMEOUT / 1000
+    end_time = asyncio.get_event_loop().time() + timeout_s
+
+    while asyncio.get_event_loop().time() < end_time:
+        try:
+            await items.first.wait_for(state="visible", timeout=3000)
+        except Exception:
+            await asyncio.sleep(0.5)
+            continue
+        count = await items.count()
+        for j in range(count):
+            title = (await items.nth(j).text_content()).strip()
+            for prefix in candidate_prefixes:
+                if title.startswith(prefix):
+                    log(f"  找到: {title[:60]}")
+                    await items.nth(j).click()
+                    await asyncio.sleep(1)
+                    return prefix
+        await asyncio.sleep(0.5)
+
+    # 兜底：搜索过滤
+    for prefix in candidate_prefixes:
+        log(f"  列表中未直接找到，尝试搜索过滤「{prefix}」...")
+        search_box = editor_page.get_by_role("textbox", name="输入标题搜索")
+        if await search_box.count() > 0:
+            await search_box.click()
+            await search_box.fill(prefix)
+            await editor_page.keyboard.press("Enter")
+            await asyncio.sleep(2)
+            try:
+                await items.first.wait_for(state="visible", timeout=_TIMEOUT)
+            except Exception:
+                pass
+            count = await items.count()
+            for j in range(count):
+                title = (await items.nth(j).text_content()).strip()
+                if title.startswith(prefix):
+                    log(f"  搜索后找到: {title[:60]}")
+                    await items.nth(j).click()
+                    await asyncio.sleep(1)
+                    return prefix
+
+    raise Exception(f"草稿列表中未找到以下任一候选模板: {candidate_prefixes}")
+
+
+async def _navigate_to_first_editor_scheme2(page, candidate_prefixes: list[str], log):
+    """新建图文 → 切换草稿 → 查找周六/周日汇总模板 → 确定 → 等待编辑器。"""
     log("点击新建图文...")
     async with page.expect_popup() as popup_info:
         await page.locator(".new-creation__menu > div:nth-child(3)").click()
@@ -42,8 +89,8 @@ async def _navigate_to_first_editor_scheme2(page, template_prefix: str, log):
     await editor_page.get_by_text("草稿", exact=True).click()
     await asyncio.sleep(1)
 
-    log(f"查找「{template_prefix}」...")
-    await _find_and_click_template(editor_page, template_prefix, log)
+    log(f"查找候选模板: {candidate_prefixes}...")
+    matched_prefix = await _find_and_click_summary_template(editor_page, candidate_prefixes, log)
     await asyncio.sleep(1)
 
     log("点击确定...")
@@ -119,13 +166,15 @@ async def _create_new_article_scheme2(editor_page, template_prefix: str, log):
 
 
 async def _do_sequential_replace(editor_page, month: int, week: int,
-                                 entries: list, template_prefix: str,
+                                 entries: list, candidate_prefixes: list[str] | str,
                                  log) -> dict:
     """对编辑器中重复出现的占位符进行顺序替换。
 
     entries: [(date, data_dict), ...]  按日期、编号排序的扁平列表
     """
     results = {}
+    if isinstance(candidate_prefixes, str):
+        candidate_prefixes = [candidate_prefixes]
 
     # ---- 调试 ----
     try:
@@ -173,9 +222,18 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
             else:
                 title_text = await title_box.input_value()
             # 去掉模板名前缀
-            title_text = title_text.replace(template_prefix, "").strip()
+            for pfx in candidate_prefixes:
+                title_text = title_text.replace(pfx, "")
+            title_text = title_text.strip()
             title_text = title_text.replace("{{月数}}", str(month))
             title_text = title_text.replace("{{周数}}", str(week))
+            grad_year = ""
+            for _, data in entries:
+                gy = str(data.get("{{届数}}", "")).strip()
+                if gy:
+                    grad_year = gy
+                    break
+            title_text = title_text.replace("{{届数}}", grad_year)
             if title_is_editable_div:
                 # ProseMirror 需要真实键盘事件才能更新内部状态
                 await title_box.click()
@@ -253,15 +311,21 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
     await asyncio.sleep(1)
 
     # ---- 4. 顺序替换条目占位符 ----
-    PER_ENTRY_FIELDS = ["{{公司简称}}", "{{岗位名称}}", "{{工作地点}}"]
+    PER_ENTRY_FIELDS = ["{{届数}}", "{{公司简称}}", "{{岗位名称}}", "{{工作地点}}"]
 
     field_values = {f: [] for f in PER_ENTRY_FIELDS}
     for _, data in entries:
         for f in PER_ENTRY_FIELDS:
             field_values[f].append(data.get(f, "") or " ")
 
+    mini_field_values = []
+    for _, data in entries:
+        mini_field_values.append(data.get("{{小程序链接}}", "") or "")
+
     log(f"替换正文占位符 ({len(entries)} 条记录)...")
-    body_result = await editor_page.evaluate("""(fieldValues) => {
+    body_result = await editor_page.evaluate("""(args) => {
+        const fieldValues = args.fieldValues;
+        const miniFieldValues = args.miniFieldValues;
         const root = document.querySelector(
             '.ProseMirror:not([data-placeholder])');
         if (!root) return {};
@@ -302,9 +366,26 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
             replaced[ph] = count;
         }
 
+        // 顺序替换 {{小程序链接}}
+        let miniCount = 0;
+        const miniRegex = buildRegex('{{小程序链接}}');
+        for (const val of miniFieldValues) {
+            if (miniRegex.test(html)) {
+                if (val.startsWith("#小程序://")) {
+                    html = html.replace(miniRegex, '__MINI_PROGRAM_PLACEHOLDER__');
+                } else {
+                    html = html.replace(miniRegex, toEditorHtml(val));
+                    miniCount++;
+                }
+            }
+        }
+        // 还原真正的小程序占位符
+        html = html.replaceAll('__MINI_PROGRAM_PLACEHOLDER__', '{{小程序链接}}');
+        replaced['{{小程序链接}}'] = miniCount;
+
         root.innerHTML = html;
         return replaced;
-    }""", field_values)
+    }""", {"fieldValues": field_values, "miniFieldValues": mini_field_values})
     total = sum(body_result.values())
     log(f"  正文替换 {total} 处: {body_result}")
     results.update(body_result)
@@ -312,7 +393,7 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
 
     # ---- 5. 逐个插入小程序卡片 ----
     mini_links = [(data.get("{{小程序链接}}", "")) for _, data in entries]
-    mini_links = [l for l in mini_links if l]
+    mini_links = [l for l in mini_links if l and l.startswith("#小程序://")]
 
     if mini_links:
         log(f"插入 {len(mini_links)} 个小程序卡片...")
@@ -365,8 +446,8 @@ async def _do_sequential_replace(editor_page, month: int, week: int,
 
 # ---- 主线程 ----
 
-class Scheme2Thread(QThread):
-    """方案2：周日汇总 —— 跨日期范围的校招/实习汇总发布"""
+class SummaryPublishThread(QThread):
+    """汇总发布通用基类：支持单类别汇总（校招/实习）"""
 
     logMessage = Signal(str)
     publishWaiting = Signal()
@@ -375,13 +456,14 @@ class Scheme2Thread(QThread):
     publishStopped = Signal()
 
     def __init__(self, account_name: str, start_date, end_date,
-                 parent=None, *, headless=False):
+                 category: str, parent=None, *, headless=False):
         super().__init__(parent)
         self.account_name = account_name
         self.account_dir = ACCOUNTS_DIR / account_name
         self.session_path = self.account_dir / "session.json"
         self._start_date = start_date
         self._end_date = end_date
+        self.category = category
         self._headless = headless
         self._stop_requested = False
         self._pause_requested = False
@@ -423,28 +505,21 @@ class Scheme2Thread(QThread):
         _start_time = time.monotonic()
 
         month, week = compute_month_and_week(self._end_date)
-        self._log(f"周日汇总: {self._start_date} ~ {self._end_date}, "
+        self._log(f"【{self.category}】汇总: {self._start_date} ~ {self._end_date}, "
                   f"{month}月第{week}周")
 
-        # 加载并展平为 (date, data_dict) 列表
-        category_entries = []
-        for category in TEMPLATE_CATEGORIES:
-            raw_templates = load_date_range_templates(
-                self.account_name, self._start_date, self._end_date,
-                category)
-            flat_entries = [(d, data)
-                            for d, day_temps in raw_templates
-                            for _, data in day_temps]
-            category_entries.append((category, flat_entries))
+        # 仅加载指定类别的模板，并展平为 (date, data_dict) 列表
+        raw_templates = load_date_range_templates(
+            self.account_name, self._start_date, self._end_date,
+            self.category)
+        flat_entries = [(d, data)
+                        for d, day_temps in raw_templates
+                        for _, data in day_temps]
 
-        summary = ", ".join(
-            f"{category}: {len(entries)} 条"
-            for category, entries in category_entries
-        )
-        self._log(summary)
+        self._log(f"已加载【{self.category}】模板: {len(flat_entries)} 条")
 
-        if not any(entries for _, entries in category_entries):
-            self.publishFailed.emit("日期范围内未找到任何模板数据")
+        if not flat_entries:
+            self.publishFailed.emit(f"日期范围内未找到任何【{self.category}】模板数据")
             return
 
         if not self.session_path.exists():
@@ -485,45 +560,28 @@ class Scheme2Thread(QThread):
                 return
 
             try:
-                article_idx = 0
-                for category, entries in category_entries:
-                    if not entries:
-                        self._log(f"{category}无数据，跳过")
-                        continue
+                candidate_prefixes = _SUMMARY_CANDIDATE_PREFIXES.get(
+                    self.category, [f"周日总结{self.category}模板", f"周六总结{self.category}模板"])
 
-                    await self._check_state()
-                    template_prefix = _SUMMARY_TEMPLATE_PREFIXES[category]
-                    self._log(f"===== 第{article_idx + 1}篇: {category} "
-                              f"({len(entries)}条) =====")
+                await self._check_state()
+                self._log(f"===== 开始处理: {self.category}汇总 ({len(flat_entries)}条) =====")
 
-                    if article_idx == 0:
-                        editor_page = await _retry(
-                            lambda tp=template_prefix:
-                                _navigate_to_first_editor_scheme2(
-                                    page, tp, self._log),
-                            retries=1, delay=3, log=self._log)
-                    else:
-                        editor_page = await _find_editor_page(context)
-                        if not editor_page:
-                            raise Exception("未找到编辑器页面")
-                        await _retry(
-                            lambda ep=editor_page, tp=template_prefix:
-                                _create_new_article_scheme2(
-                                    ep, tp, self._log),
-                            retries=1, delay=3, log=self._log)
+                editor_page = await _retry(
+                    lambda: _navigate_to_first_editor_scheme2(
+                        page, candidate_prefixes, self._log),
+                    retries=1, delay=3, log=self._log)
 
-                    await self._check_state()
-                    editor_page = await _find_editor_page(context)
-                    if not editor_page:
-                        raise Exception("未找到编辑器页面")
+                await self._check_state()
+                editor_page = await _find_editor_page(context)
+                if not editor_page:
+                    raise Exception("未找到编辑器页面")
 
-                    result = await _do_sequential_replace(
-                        editor_page, month, week,
-                        entries, template_prefix, self._log)
-                    self._log(f"{category}替换完成: {result}")
-                    save_history(self.account_dir, f"{category}汇总",
-                                {"entries": len(entries)}, "success")
-                    article_idx += 1
+                result = await _do_sequential_replace(
+                    editor_page, month, week,
+                    flat_entries, candidate_prefixes, self._log)
+                self._log(f"{self.category}汇总替换完成: {result}")
+                save_history(self.account_dir, f"{self.category}汇总",
+                            {"entries": len(flat_entries)}, "success")
 
                 # 保存草稿
                 self._log("正在保存草稿...")
@@ -564,3 +622,21 @@ class Scheme2Thread(QThread):
             await context.storage_state(path=str(self.session_path))
             await browser.close()
             self.publishStopped.emit()
+
+
+class Scheme2Thread(SummaryPublishThread):
+    """方案2：周日汇总 —— 仅汇总实习"""
+
+    def __init__(self, account_name: str, start_date, end_date,
+                 parent=None, *, headless=False):
+        super().__init__(account_name, start_date, end_date,
+                         category="实习", parent=parent, headless=headless)
+
+
+class Scheme3Thread(SummaryPublishThread):
+    """方案3：周六汇总 —— 仅汇总校招"""
+
+    def __init__(self, account_name: str, start_date, end_date,
+                 parent=None, *, headless=False):
+        super().__init__(account_name, start_date, end_date,
+                         category="校招", parent=parent, headless=headless)

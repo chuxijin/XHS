@@ -5,7 +5,8 @@ import re
 import time
 from datetime import datetime
 
-from PySide6.QtCore import QThread, Signal
+from PySide6.QtCore import QThread, Signal, QMimeData
+from PySide6.QtGui import QGuiApplication
 from playwright.async_api import async_playwright
 
 from .wechat_service import (WECHAT_URL, ACCOUNTS_DIR,
@@ -15,6 +16,11 @@ from .wechat_service import (WECHAT_URL, ACCOUNTS_DIR,
 
 # 条件等待的默认超时（毫秒）
 _TIMEOUT = 15000
+_FIRST_TEMPLATE_NAMES = {
+    "校招": "校招日常模板1",
+    "实习": "实习日常模板1",
+    "社招": "社招日常模板1",
+}
 _DAILY_TEMPLATE_NAMES = {
     "校招": "校招日常模板2",
     "实习": "实习日常模板1",
@@ -266,6 +272,52 @@ async def _create_new_article(editor_page, template_name: str, log):
         pass
 
 
+def build_carousel_html(img_urls: list[str]) -> str:
+    """根据给定的图片链接列表填充固定 SVG 轮播图 HTML 模板。"""
+    urls = [url.strip() for url in img_urls if isinstance(url, str) and url.strip()]
+    if not urls:
+        return ""
+
+    img1 = urls[0] if len(urls) > 0 else ""
+    img2 = urls[1] if len(urls) > 1 else img1
+    img3 = urls[2] if len(urls) > 2 else (img2 or img1)
+
+    return f"""<section><span><br></span></section>
+<section style="width:70%;margin-left:auto!important;margin-right:auto!important;height:auto!important;">
+  <section style="width:100%;">
+    <section style="width:100%;overflow:scroll hidden;isolation:isolate;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:thin;-webkit-scrollbar-width:thin;line-height:0;pointer-events:visible;">
+      <section style="white-space:nowrap;width:300%!important;max-width:300%!important;display:flex;line-height:0;">
+        <section style="flex:1;vertical-align:top;display:flex;justify-content:center;align-items:center;scroll-snap-align:start;">
+          <svg style="width:100%;height:100%;" viewBox="0 0 1080 1440">
+            <foreignObject width="960" height="1320" x="60" y="60">
+              <section xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background-position:50% 50%;background-size:cover;background-repeat:no-repeat;border-radius:32px;background-image:url(&quot;{img1}&quot;);"></section>
+            </foreignObject>
+          </svg>
+        </section>
+        <section style="flex:1;vertical-align:top;display:flex;justify-content:center;align-items:center;scroll-snap-align:start;">
+          <svg style="width:100%;height:100%;" viewBox="0 0 1080 1440">
+            <foreignObject width="960" height="1320" x="60" y="60">
+              <section xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background-position:50% 50%;background-size:cover;background-repeat:no-repeat;border-radius:32px;background-image:url(&quot;{img2}&quot;);"></section>
+            </foreignObject>
+          </svg>
+        </section>
+        <section style="flex:1;vertical-align:top;display:flex;justify-content:center;align-items:center;scroll-snap-align:start;">
+          <svg style="width:100%;height:100%;" viewBox="0 0 1080 1440">
+            <foreignObject width="960" height="1320" x="60" y="60">
+              <section xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background-position:50% 50%;background-size:cover;background-repeat:no-repeat;border-radius:32px;background-image:url(&quot;{img3}&quot;);"></section>
+            </foreignObject>
+          </svg>
+        </section>
+      </section>
+    </section>
+    <section style="padding:12px;text-align:center;max-height:78px;overflow-x:hidden;overflow-y:auto;isolation:isolate;scroll-behavior:smooth;scrollbar-width:thin;-webkit-scrollbar-width:thin;box-sizing:border-box;font-size:12px;font-family:PingFangSC-Regular, PingFang SC;color:#999;line-height:18px;">
+      <p style="margin:0;"><span>←左右滑动查看更多预览 当前完整内容放不下→</span></p>
+    </section>
+  </section>
+</section>
+<section><span><br></span></section>"""
+
+
 async def _do_replace(editor_page, replacements: dict, log) -> dict:
     results = {}
 
@@ -319,7 +371,7 @@ async def _do_replace(editor_page, replacements: dict, log) -> dict:
                 else:
                     title_text = await title_box.input_value()
                 title_text = re.sub(
-                    r'^(校招|实习)日常模板\d+\s*', '', title_text)
+                    r'^(校招|实习|社招)日常模板\d+\s*', '', title_text)
                 replaced = 0
                 for ph, val in title_fields.items():
                     if ph in title_text:
@@ -341,55 +393,125 @@ async def _do_replace(editor_page, replacements: dict, log) -> dict:
             results["标题"] = 0
 
     # 2. 替换正文 (ProseMirror innerHTML)
-    body_fields = {k: v if v else " " for k, v in replacements.items()
-                   if k != "{{小程序链接}}"}
-    if body_fields:
-        log("替换正文...")
-        body_result = await editor_page.evaluate("""(replacements) => {
-            const root = document.querySelector(
-                '.ProseMirror:not([data-placeholder])');
-            if (!root) return {};
-            let html = root.innerHTML;
-            const replaced = {};
-            function escapeHtml(text) {
-                return String(text)
-                    .replace(/&/g, '&amp;')
-                    .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;')
-                    .replace(/"/g, '&quot;')
-                    .replace(/'/g, '&#39;');
+    link = replacements.get("{{小程序链接}}", "")
+    is_mini = link.startswith("#小程序://")
+
+    # 提取图片链接列表并生成轮播 HTML
+    img_urls = replacements.get("{{图片链接}}") or []
+    if isinstance(img_urls, str):
+        img_urls = [img_urls]
+    carousel_html = build_carousel_html(img_urls)
+
+    carousel_placeholders = ["{{轮播图位置}}", "{{轮播图}}", "{{图片轮播}}"]
+
+    # 2. 替换正文文本与轮播图（在同一个 evaluate 中原子完成，避免剪贴板模拟造成的焦点错位）
+    text_fields = {
+        k: (v if v else " ")
+        for k, v in replacements.items()
+        if k != "{{小程序链接}}" or not is_mini
+    }
+    for k in list(text_fields.keys()):
+        if k in carousel_placeholders or k == "{{图片链接}}":
+            del text_fields[k]
+
+    log("替换正文文本与轮播图组件...")
+    body_result = await editor_page.evaluate("""(args) => {
+        const textFields = args.textFields;
+        const carouselHtml = args.carouselHtml;
+        const carouselPlaceholders = args.carouselPlaceholders;
+        const root = document.querySelector('.ProseMirror:not([data-placeholder])') ||
+                     document.querySelector('.ProseMirror');
+        if (!root) return {};
+        let html = root.innerHTML;
+        const replaced = {};
+
+        function escapeHtml(text) {
+            return String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        function toEditorHtml(text) {
+            const normalized = escapeHtml(text)
+                .replace(/\\\\n/g, '\\n')
+                .split(/\\r\\n|\\r|\\n/g);
+            return normalized.join('</span></p><p><span leaf="">');
+        }
+
+        // 1. 替换普通文本字段
+        for (const [ph, newText] of Object.entries(textFields)) {
+            if (typeof newText !== 'string') continue;
+            const escaped = ph.split('').map(c =>
+                c.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')
+            ).join('(?:<[^>]*>)*');
+            const regex = new RegExp(escaped, 'g');
+            const matches = html.match(regex);
+            const count = matches ? matches.length : 0;
+            if (count > 0) {
+                const htmlText = toEditorHtml(newText);
+                html = html.replace(regex, htmlText);
             }
-            function toEditorHtml(text) {
-                const normalized = escapeHtml(text)
-                    .replace(/\\\\n/g, '\\n')
-                    .split(/\\r\\n|\\r|\\n/g);
-                return normalized.join('</span></p><p><span leaf="">');
-            }
-            for (const [ph, newText] of Object.entries(replacements)) {
+            replaced[ph] = count;
+        }
+
+        // 2. 替换轮播图：直接在 HTML 中将占位符所在段落替换为完整 SVG 轮播图
+        if (carouselHtml) {
+            for (const ph of carouselPlaceholders) {
                 const escaped = ph.split('').map(c =>
                     c.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')
                 ).join('(?:<[^>]*>)*');
-                const regex = new RegExp(escaped, 'g');
-                const matches = html.match(regex);
-                const count = matches ? matches.length : 0;
-                if (count > 0) {
-                    const htmlText = toEditorHtml(newText);
-                    html = html.replace(regex, htmlText);
+                // 匹配包含该占位符的整行 <p>...</p>，若无则匹配自身
+                const pRegex = new RegExp('(?:<p[^>]*>(?:(?!<\\/p>).)*?)?' + escaped + '(?:(?:(?!<\\/p>).)*?<\\/p>)?', 'g');
+                const matches = html.match(pRegex);
+                if (matches && matches.length > 0) {
+                    html = html.replace(pRegex, carouselHtml);
+                    replaced[ph] = matches.length;
+                    break;
                 }
-                replaced[ph] = count;
             }
-            if (Object.values(replaced).some(c => c > 0)) {
-                root.innerHTML = html;
+        } else {
+            // 无轮播图时，彻底清除占位符及其段落
+            for (const ph of carouselPlaceholders) {
+                const escaped = ph.split('').map(c =>
+                    c.replace(/[.*+?^${}()|[\\]\\\\]/g, '\\\\$&')
+                ).join('(?:<[^>]*>)*');
+                const pRegex = new RegExp('(?:<p[^>]*>(?:(?!<\\/p>).)*?)?' + escaped + '(?:(?:(?!<\\/p>).)*?<\\/p>)?', 'g');
+                html = html.replace(pRegex, '');
             }
-            return replaced;
-        }""", body_fields)
-        total = sum(body_result.values())
-        log(f"  正文替换 {total} 处")
-        results.update(body_result)
+        }
+
+        // 写入更新后的 HTML 并触发 input 事件同步 ProseMirror
+        root.innerHTML = html;
+        try {
+            root.dispatchEvent(new Event('input', { bubbles: true }));
+        } catch (e) {}
+
+        return replaced;
+    }""", {
+        "textFields": text_fields,
+        "carouselHtml": carousel_html,
+        "carouselPlaceholders": carousel_placeholders,
+    })
+
+    total = sum(body_result.values())
+    log(f"  正文内容替换 {total} 处: {body_result}")
+    results.update(body_result)
+    await asyncio.sleep(0.5)
+
+    # 自动处理微信可能弹出的「内容结构检测」拦截弹窗
+    try:
+        continue_btn = editor_page.get_by_role("button", name="继续插入")
+        if await continue_btn.count() > 0 and await continue_btn.first.is_visible():
+            log("  检测到微信「内容结构检测」提示，自动点击「继续插入」...")
+            await continue_btn.first.click()
+            await asyncio.sleep(0.5)
+    except Exception:
+        pass
 
     # 3. 插入小程序卡片
-    link = replacements.get("{{小程序链接}}", "")
-    if link:
+    if link and is_mini:
         try:
             log("插入小程序卡片...")
             target = editor_page.get_by_text("{{小程序链接}}")
@@ -434,6 +556,13 @@ async def _do_replace(editor_page, replacements: dict, log) -> dict:
 async def _save_draft(editor_page, log):
     """点击保存为草稿按钮"""
     try:
+        # 若存在「内容结构检测」拦截弹窗，自动点击「继续插入」放行
+        continue_btn = editor_page.get_by_role("button", name="继续插入")
+        if await continue_btn.count() > 0 and await continue_btn.first.is_visible():
+            log("  检测到弹窗提示，自动点击「继续插入」放行...")
+            await continue_btn.first.click()
+            await asyncio.sleep(0.5)
+
         save_btn = editor_page.get_by_role("button", name="保存为草稿")
         if await save_btn.count() > 0 and await save_btn.first.is_visible():
             await save_btn.first.click()
@@ -511,17 +640,24 @@ class WechatPublishThread(QThread):
             (category, load_templates(templates_dir, category))
             for category in TEMPLATE_CATEGORIES
         ]
-        recruit_temps = dict(category_templates).get("校招", [])
-        intern_temps = dict(category_templates).get("实习", [])
-        if not recruit_temps and not intern_temps:
+        valid_categories = [
+            (category, temps)
+            for category, temps in category_templates
+            if temps
+        ]
+        if not valid_categories:
             self.publishFailed.emit(
-                f"未找到模板，请在 {templates_dir} 下的 校招/ 和 实习/ "
-                f"文件夹中放入模板")
+                f"未找到模板，请在 {templates_dir} 下的 校招/、实习/ 或 社招/ "
+                f"文件夹中放入模板文件")
             return
+
+        first_category = valid_categories[0][0]
+        first_tpl_name = _FIRST_TEMPLATE_NAMES.get(
+            first_category, f"{first_category}日常模板1")
 
         loaded_summary = ", ".join(
             f"{category} {len(temps)} 个"
-            for category, temps in category_templates
+            for category, temps in valid_categories
         )
         self._log(f"已加载 {loaded_summary}")
 
@@ -563,8 +699,8 @@ class WechatPublishThread(QThread):
 
             try:
                 editor_page = await _navigate_to_first_editor(
-                    page, "校招日常模板1", self._log)
-                self._log("已进入编辑页")
+                    page, first_tpl_name, self._log)
+                self._log(f"已进入编辑页（首篇模板：{first_tpl_name}）")
             except _StopRequested:
                 self._log("用户已终止，正在关闭浏览器...")
                 await context.storage_state(path=str(self.session_path))
@@ -579,11 +715,11 @@ class WechatPublishThread(QThread):
 
             success_count = 0
             fail_count = 0
-            total_count = sum(len(temps) for _, temps in category_templates)
+            total_count = sum(len(temps) for _, temps in valid_categories)
 
             try:
                 article_idx = 0
-                for category, temps in category_templates:
+                for category, temps in valid_categories:
                     for i, (name, data) in enumerate(temps):
                         await self._check_state()
 
@@ -595,7 +731,8 @@ class WechatPublishThread(QThread):
 
                         try:
                             if article_idx > 0:
-                                tpl_name = _DAILY_TEMPLATE_NAMES[category]
+                                tpl_name = _DAILY_TEMPLATE_NAMES.get(
+                                    category, f"{category}日常模板1")
 
                                 self._log(
                                     f"新建第 {article_idx + 1} 篇"

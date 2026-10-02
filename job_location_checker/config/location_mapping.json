@@ -1,0 +1,49 @@
+{
+  "chinese_city_pinyin_map": {
+    "hangzhou": "杭州", "suzhou": "苏州", "wuxi": "无锡", "nanjing": "南京", "changzhou": "常州",
+    "nantong": "南通", "yangzhou": "扬州", "zhenjiang": "镇江", "taizhou": "泰州", "suqian": "宿迁",
+    "xuzhou": "徐州", "huai'an": "淮安", "huaian": "淮安", "yancheng": "盐城", "lianyungang": "连云港",
+    "ningbo": "宁波", "wenzhou": "温州", "jiaxing": "嘉兴", "huzhou": "湖州", "shaoxing": "绍兴",
+    "jinhua": "金华", "quzhou": "衢州", "zhoushan": "舟山", "lishui": "丽水", "guangzhou": "广州",
+    "shenzhen": "深圳", "zhuhai": "珠海", "shantou": "汕头", "foshan": "佛山", "shaoguan": "韶关",
+    "zhanjiang": "湛江", "zhaoqing": "肇庆", "jiangmen": "江门", "meizhou": "梅州", "huizhou": "惠州",
+    "shanwei": "汕尾", "heyuan": "河源", "yangjiang": "阳江", "qingyuan": "清远", "dongguan": "东莞",
+    "zhongshan": "中山", "chaozhou": "潮州", "jieyang": "揭阳", "yunfu": "云浮", "beijing": "北京",
+    "shanghai": "上海", "tianjin": "天津", "chongqing": "重庆", "chengdu": "成都", "mianyang": "绵阳",
+    "deyang": "德阳", "yibin": "宜宾", "wuhan": "武汉", "yichang": "宜昌", "xiangyang": "襄阳",
+    "xiaogan": "孝感", "changsha": "长沙", "zhuzhou": "株洲", "xiangtan": "湘潭", "yueyang": "岳阳",
+    "changde": "常德", "chenzhou": "郴州", "zhengzhou": "郑州", "luoyang": "洛阳", "xinxiang": "新乡",
+    "kaifeng": "开封", "jinan": "济南", "qingdao": "青岛", "yantai": "烟台", "weifang": "潍坊",
+    "zibo": "淄博", "jining": "济宁", "weihai": "威海", "liaocheng": "聊城", "dezhou": "德州",
+    "binzhou": "滨州", "heze": "菏泽", "rizhao": "日照", "linyi": "临沂", "zaozhuang": "枣庄",
+    "tai'an": "泰安", "taian": "泰安", "dongying": "东营", "xi'an": "西安", "xian": "西安",
+    "xianyang": "咸阳", "baoji": "宝鸡", "hefei": "合肥", "wuhu": "芜湖", "bengbu": "蚌埠",
+    "fuyang": "阜阳", "anqing": "安庆", "chuzhou": "滁州", "fuzhou": "福州", "xiamen": "厦门",
+    "quanzhou": "泉州", "zhangzhou": "漳州", "nanchang": "南昌", "jiujiang": "九江", "ganzhou": "赣州",
+    "shangrao": "上饶", "nanning": "南宁", "guilin": "桂林", "liuzhou": "柳州", "guiyang": "贵阳",
+    "zunyi": "遵义", "kunming": "昆明", "haerbin": "哈尔滨", "harbin": "哈尔滨", "daqing": "大庆",
+    "changchun": "长春", "jilin": "吉林", "shenyang": "沈阳", "dalian": "大连", "anshan": "鞍山",
+    "taiyuan": "太原", "datong": "大同", "shijiazhuang": "石家庄", "tangshan": "唐山", "baoding": "保定",
+    "langfang": "廊坊", "huhehaote": "呼和浩特", "baotou": "包头", "chifeng": "赤峰", "lanzhou": "兰州",
+    "xining": "西宁", "yinchuan": "银川", "wulumuqi": "乌鲁木齐", "urumqi": "乌鲁木齐", "lasa": "拉萨",
+    "lhasa": "拉萨"
+  },
+
+  "region_equivalence_map": {
+    "hsinchu": "台湾", "taipei": "台湾", "kaohsiung": "台湾", "tainan": "台湾",
+    "taichung": "台湾", "taoyuan": "台湾", "linkou": "台湾", "kaosiung": "台湾",
+    "hong kong": "香港", "hongkong": "香港", "hk": "香港", "kowloon": "香港",
+    "sha tin": "香港", "cheung sha wan": "香港", "macau": "澳门", "macao": "澳门"
+  },
+
+  "transliteration_misspelling_map": {
+    "pittsburg county": "凉山/普格县", "mayes county": "阿坝/茂县", "hughes county": "廊坊/香河县",
+    "woods county": "拉萨/尼木县", "greer county": "甘孜/德格县", "allen": "阿里", "jena": "济宁"
+  },
+
+  "us_county_to_state_map": {
+    "oklahoma county": "俄克拉荷马", "grady county": "俄克拉荷马", "cleveland county": "俄克拉荷马",
+    "canadian county": "俄克拉荷马", "mayes county": "俄克拉荷马", "mcclain county": "俄克拉荷马",
+    "mccurtain county": "俄克拉荷马", "houston": "德克萨斯", "katy": "德克萨斯", "austin": "德克萨斯"
+  }
+}
