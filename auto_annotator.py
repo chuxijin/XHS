@@ -6,6 +6,13 @@ import urllib.request
 from datetime import datetime
 from playwright.sync_api import sync_playwright
 
+if sys.stdout.encoding and sys.stdout.encoding.lower() != 'utf-8':
+    try:
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+    except Exception:
+        pass
+
 def get_wx_publish_date(notice_url: str, job_item=None) -> str:
     # 1. 优先从页面的 job-item 中提取 .job-time
     if job_item:
@@ -82,49 +89,98 @@ def filter_empty_notice_row(page, rows, match_name=None):
         print("提示：搜出多个目标但各行公告列均非空，选取候选匹配第一条记录")
         return candidate_rows[0]
 
-def search_and_locate_row(page, company_name: str):
-    name_input = page.locator(".el-form-item:has(.el-form-item__label:has-text('名称')) input").first
-    name_input.fill(company_name)
-    search_btn = page.locator("button.el-button--primary:has-text('搜索')").first
+def reset_search_filters(page):
+    """清除表单可能遗留的筛选条件（如关联公告/岗位类型/时间等）"""
     try:
-        with page.expect_response(lambda r: "company" in r.url and r.status == 200, timeout=10000):
-            search_btn.click()
+        clear_btns = page.locator(".el-form .el-icon-circle-close").all()
+        for btn in clear_btns:
+            try:
+                if btn.is_visible():
+                    btn.click()
+                    page.wait_for_timeout(80)
+            except Exception:
+                pass
     except Exception:
-        search_btn.click()
-    page.wait_for_timeout(600)
+        pass
 
-    rows = page.locator(".el-table__body-wrapper tbody tr")
-    if rows.count() == 1 and "暂无数据" not in rows.first.inner_text():
-        return rows.first
-    elif rows.count() > 1:
-        return filter_empty_notice_row(page, rows, company_name)
+def search_and_locate_row(page, company_name: str):
+    reset_search_filters(page)
+    name_input = page.locator(".el-form-item:has(.el-form-item__label:has-text('名称')) input").first
+    search_btn = page.locator("button.el-button--primary:has-text('搜索')").first
+
+    def do_search(term):
+        name_input.fill("")
+        name_input.fill(term)
+        try:
+            with page.expect_response(lambda r: ("company/basic/all" in r.url or "recruit/company" in r.url or "company" in r.url) and r.status == 200, timeout=10000):
+                search_btn.click()
+        except Exception:
+            search_btn.click()
+        page.wait_for_timeout(800)
+
+        # 等待行刷新并验证匹配（避免读取到未刷新的旧 DOM 行）
+        for _ in range(6):
+            rows = page.locator(".el-table__body-wrapper tbody tr")
+            if rows.count() > 0:
+                first_text = rows.first.inner_text()
+                if "暂无数据" in first_text or any(k in first_text for k in [term, company_name] if k):
+                    break
+            page.wait_for_timeout(300)
+        return page.locator(".el-table__body-wrapper tbody tr")
+
+    # 生成候选搜索词
+    search_candidates = [company_name]
 
     clean_name = company_name
     for suffix in ["分公司", "支公司", "集团有限公司", "有限责任公司", "股份有限公司", "有限公司", "集团", "公司"]:
         if clean_name.endswith(suffix) and len(clean_name) - len(suffix) >= 3:
             clean_name = clean_name[:-len(suffix)]
             break
-
     if clean_name != company_name:
-        print(f"原名称未直接定位，尝试用核心关键词搜索: '{clean_name}'...")
-        name_input.fill(clean_name)
-        try:
-            with page.expect_response(lambda r: "company" in r.url and r.status == 200, timeout=10000):
-                search_btn.click()
-        except Exception:
-            search_btn.click()
-        page.wait_for_timeout(600)
+        search_candidates.append(clean_name)
 
-        rows = page.locator(".el-table__body-wrapper tbody tr")
+    no_paren = re.sub(r'[\(（].*?[\)）]', '', clean_name).strip()
+    if no_paren and no_paren not in search_candidates and len(no_paren) >= 2:
+        search_candidates.append(no_paren)
+
+    for idx, term in enumerate(search_candidates):
+        if idx > 0:
+            print(f"原名称未直接定位，尝试用核心关键词搜索: '{term}'...")
+        rows = do_search(term)
         row_count = rows.count()
         if row_count == 1 and "暂无数据" in rows.first.inner_text():
             row_count = 0
-        print(f"关键词搜索返回 {row_count} 条记录")
 
-        if row_count == 1:
-            return rows.first
-        elif row_count > 1:
-            return filter_empty_notice_row(page, rows, clean_name)
+        if row_count > 0:
+            # 严格筛选包含搜索词的有效行
+            matched_indices = []
+            for i in range(row_count):
+                r = rows.nth(i)
+                txt = r.inner_text()
+                if any(k in txt for k in [company_name, clean_name, term] if k):
+                    matched_indices.append(i)
+
+            if matched_indices:
+                if len(matched_indices) == 1:
+                    return rows.nth(matched_indices[0])
+                else:
+                    return filter_empty_notice_row(page, rows, term)
+
+    # 兜底：如果被隐藏的高级筛选拦截，刷新页面重置所有筛选后重新搜索
+    print("提示：当前筛选条件可能拦截了结果，正在刷新页面重置全部筛选条件后重试...")
+    page.reload()
+    page.wait_for_timeout(1500)
+    name_input = page.locator(".el-form-item:has(.el-form-item__label:has-text('名称')) input").first
+    search_btn = page.locator("button.el-button--primary:has-text('搜索')").first
+    for term in search_candidates:
+        rows = do_search(term)
+        row_count = rows.count()
+        if row_count == 1 and "暂无数据" in rows.first.inner_text():
+            row_count = 0
+        if row_count > 0:
+            matched_indices = [i for i in range(row_count) if any(k in rows.nth(i).inner_text() for k in [company_name, clean_name, term] if k)]
+            if matched_indices:
+                return rows.nth(matched_indices[0]) if len(matched_indices) == 1 else filter_empty_notice_row(page, rows, term)
 
     return None
 

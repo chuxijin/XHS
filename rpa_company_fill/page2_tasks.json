@@ -1,0 +1,83 @@
+[
+  {
+    "page": 2,
+    "match": "https://freddiemac.wd5.myworkdayjobs.com/en-US/External",
+    "name": "Federal Home Loan Mortgage Corporation",
+    "abbr": "房地美FreddieMac",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://sierraspace.wd1.myworkdayjobs.com/en-US/Sierra_Space_External_Career_Site",
+    "name": "Sierra Space Corporation",
+    "abbr": "塞拉空间SierraSpace",
+    "type": "境外企业",
+    "industry": "军工/航天/航空",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/solomonpartnersstudentsgraduates",
+    "name": "Solomon Partners, L.P.",
+    "abbr": "所罗门合伙人SolomonPartners",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/memx",
+    "name": "MEMX LLC",
+    "abbr": "成员交易所MEMX",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/mwnaintern",
+    "name": "Marshall Wace North America L.P.",
+    "abbr": "马歇尔韦斯MarshallWace",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/riotgamesup",
+    "name": "Riot Games, Inc.",
+    "abbr": "拳头游戏RiotGames",
+    "type": "境外企业",
+    "industry": "IT/互联网/游戏",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/datacor",
+    "name": "Datacor, Inc.",
+    "abbr": "达塔科尔Datacor",
+    "type": "境外企业",
+    "industry": "IT/互联网/游戏",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://job-boards.greenhouse.io/dlrgroup",
+    "name": "DLR Group Inc.",
+    "abbr": "DLR集团DLRGroup",
+    "type": "境外企业",
+    "industry": "建筑/房地产",
+    "location": "美国"
+  },
+  {
+    "page": 2,
+    "match": "https://swa.wd1.myworkdayjobs.com/en-US/external",
+    "name": "Southwest Airlines Co.",
+    "abbr": "西南航空SouthwestAirlines",
+    "type": "境外企业",
+    "industry": "物流/供应链/交通运输",
+    "location": "美国"
+  }
+]

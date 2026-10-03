@@ -1,0 +1,83 @@
+[
+  {
+    "page": 1,
+    "match": "https://job-boards.greenhouse.io/clevelandguardiansbops",
+    "name": "Cleveland Guardians Baseball Company, LLC",
+    "abbr": "克利夫兰守护者ClevelandGuardians",
+    "type": "境外企业",
+    "industry": "广告传媒/文化体育",
+    "location": "美国"
+  },
+  {
+    "page": 1,
+    "match": "https://job-boards.greenhouse.io/gleanwork",
+    "name": "Glean Technologies, Inc.",
+    "abbr": "格林Glean",
+    "type": "境外企业",
+    "industry": "人工智能",
+    "location": "美国"
+  },
+  {
+    "page": 1,
+    "match": "https://jobs.lever.co/allegiantair",
+    "name": "Allegiant Air, LLC",
+    "abbr": "忠诚航空AllegiantAir",
+    "type": "境外企业",
+    "industry": "物流/供应链/交通运输",
+    "location": "美国"
+  },
+  {
+    "page": 1,
+    "match": "https://careers.smartrecruiters.com/LeCollectionist",
+    "name": "Le Collectionist",
+    "abbr": "收藏家LeCollectionist",
+    "type": "境外企业",
+    "industry": "生活服务",
+    "location": "法国"
+  },
+  {
+    "page": 1,
+    "match": "https://careers.smartrecruiters.com/Bertelsmann-Jobs",
+    "name": "Bertelsmann SE & Co. KGaA",
+    "abbr": "贝塔斯曼Bertelsmann",
+    "type": "境外企业",
+    "industry": "新闻出版",
+    "location": "德国"
+  },
+  {
+    "page": 1,
+    "match": "https://careers.smartrecruiters.com/StandardBankGroup",
+    "name": "Standard Bank Group Limited",
+    "abbr": "标准银行StandardBank",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "南非"
+  },
+  {
+    "page": 1,
+    "match": "https://ffres.wd1.myworkdayjobs.com/en-US/fairfieldcareers",
+    "name": "Fairfield Residential Company LLC",
+    "abbr": "费尔菲尔德FairfieldResidential",
+    "type": "境外企业",
+    "industry": "建筑/房地产",
+    "location": "美国"
+  },
+  {
+    "page": 1,
+    "match": "https://swib.wd12.myworkdayjobs.com/en-US/ext",
+    "name": "State of Wisconsin Investment Board",
+    "abbr": "威斯康星投资委员会SWIB",
+    "type": "境外企业",
+    "industry": "金融业",
+    "location": "美国"
+  },
+  {
+    "page": 1,
+    "match": "https://my7elevenhr.wd12.myworkdayjobs.com/en-US/Careers",
+    "name": "7-Eleven, Inc.",
+    "abbr": "7Eleven便利店7Eleven",
+    "type": "境外企业",
+    "industry": "批发零售",
+    "location": "美国"
+  }
+]
